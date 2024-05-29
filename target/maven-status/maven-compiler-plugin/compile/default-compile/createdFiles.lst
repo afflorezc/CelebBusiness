@@ -1,0 +1,12 @@
+com\afflorezc\controller\Register.class
+com\afflorezc\dao\BankAccountDAO.class
+com\afflorezc\model\BankAccount.class
+com\afflorezc\dao\DBConnection.class
+com\afflorezc\dao\PersonDAO.class
+com\afflorezc\model\BankTransfer.class
+com\afflorezc\dao\UserClientDAO.class
+com\afflorezc\model\Person.class
+com\afflorezc\dao\UserAdminDAO.class
+com\afflorezc\model\Transaction.class
+com\afflorezc\model\UserAdmin.class
+com\afflorezc\model\UserClient.class
