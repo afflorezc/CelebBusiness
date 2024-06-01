@@ -1,11 +1,13 @@
 com\afflorezc\controller\Register.class
+com\afflorezc\dao\UserDAO.class
+com\afflorezc\model\BankTransfer.class
+com\afflorezc\model\Person.class
+com\afflorezc\utils\Encryption.class
+com\afflorezc\dao\TransactionDAO.class
 com\afflorezc\dao\BankAccountDAO.class
 com\afflorezc\model\BankAccount.class
 com\afflorezc\dao\DBConnection.class
 com\afflorezc\dao\PersonDAO.class
-com\afflorezc\model\BankTransfer.class
-com\afflorezc\model\Person.class
 com\afflorezc\model\Transaction.class
-com\afflorezc\model\UserAdmin.class
-com\afflorezc\dao\ClientDAO.class
+com\afflorezc\controller\Login.class
 com\afflorezc\model\User.class

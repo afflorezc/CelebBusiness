@@ -15,8 +15,8 @@ public class UserDAO {
                                                                         "password," +
                                                                         "isCelebrity," +
                                                                         "hasBankAccount," +
-                                                                        "personID" +
-                                                                        "userType" +
+                                                                        "personID," +
+                                                                        "userType) " +
                                                                         "VALUES" + 
                                                                         "(?, ?, ?, ?, ?, ?)";
     private static final String SELECT_USER_CLIENT_ID = "SELECT * FROM user WHERE clientID = ?";
@@ -27,18 +27,18 @@ public class UserDAO {
                                                                    "hasBankAccount = ?" +
                                                                    "WHERE clientID = ?";
     
-    public void insertClient(User newClient){
+    public void insertUser(User newUser){
         
         Connection connection = DBConnection.getConnection();
         
         try (
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_CLIENT)) {
-            preparedStatement.setString(1, newClient.getUserName());
-            preparedStatement.setString(2, newClient.getPassword());
-            preparedStatement.setBoolean(3, newClient.isCelebrity());
-            preparedStatement.setBoolean(4, newClient.hasBankAccount());
-            preparedStatement.setInt(5, newClient.getPersonID());
-            preparedStatement.setString(6, newClient.getUserType());
+            preparedStatement.setString(1, newUser.getUserName());
+            preparedStatement.setString(2, newUser.getPassword());
+            preparedStatement.setBoolean(3, newUser.isCelebrity());
+            preparedStatement.setBoolean(4, newUser.hasBankAccount());
+            preparedStatement.setInt(5, newUser.getPersonID());
+            preparedStatement.setString(6, newUser.getUserType());
             
             preparedStatement.executeUpdate();
             System.out.println("Usuario insertado exitosamente a la base de datos");
@@ -49,7 +49,7 @@ public class UserDAO {
         DBConnection.closeConnection(connection);
     }
 
-    public void updateClient(int clientID, String password, boolean hasAccount){
+    public void updateUser(int clientID, String password, boolean hasAccount){
         
         Connection connection = DBConnection.getConnection();
         
@@ -69,9 +69,9 @@ public class UserDAO {
         DBConnection.closeConnection(connection);
     }
 
-    public User selectClientByID(int clientID){
+    public User selectUserByID(int clientID){
         
-        User client = null;
+        User user = null;
         Connection connection = DBConnection.getConnection();
         
         try (
@@ -79,14 +79,14 @@ public class UserDAO {
             preparedStatement.setInt(1, clientID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
-                client = new User();
-                client.setClientID(resultSet.getInt("clientID"));
-                client.setUserName(resultSet.getString("userName"));
-                client.setPassword(resultSet.getString("password"));
-                client.setCelebrity(resultSet.getBoolean("isCelebrity"));
-                client.setHasBankAccount(resultSet.getBoolean("hasBankAccount"));
-                client.setPersonID(resultSet.getInt("personID"));
-                client.setUserType(resultSet.getString("userType"));
+                user = new User();
+                user.setClientID(resultSet.getInt("clientID"));
+                user.setUserName(resultSet.getString("userName"));
+                user.setPassword(resultSet.getString("password"));
+                user.setCelebrity(resultSet.getBoolean("isCelebrity"));
+                user.setHasBankAccount(resultSet.getBoolean("hasBankAccount"));
+                user.setPersonID(resultSet.getInt("personID"));
+                user.setUserType(resultSet.getString("userType"));
             }
             System.out.println("Usurario encontrado exitosamente");
         } catch (SQLException e) {
@@ -94,7 +94,7 @@ public class UserDAO {
         }
 
         DBConnection.closeConnection(connection);
-        return client;
+        return user;
     }
 
     public boolean userNameInUse(String username){
@@ -107,20 +107,22 @@ public class UserDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 DBConnection.closeConnection(connection);
+                System.out.println("Usurario encontrado exitosamente, username en uso");
                 return true;
             }
-            System.out.println("Usurario encontrado exitosamente");
         } catch (SQLException e) {
-            System.out.println("Error al buscar al usuario: " + e.getMessage());  
+            System.out.println("Error al buscar al usuario: " + e.getMessage());
+            DBConnection.closeConnection(connection);  
             return true;
         }
+        DBConnection.closeConnection(connection);
         return false;
         
     }
 
     public User selectUserByUserName(String username){
 
-        User client = null;
+        User user = null;
         Connection connection = DBConnection.getConnection();
         
         try (
@@ -128,14 +130,14 @@ public class UserDAO {
             preparedStatement.setString(1, username);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
-                client = new User();
-                client.setClientID(resultSet.getInt("clientID"));
-                client.setUserName(resultSet.getString("userName"));
-                client.setPassword(resultSet.getString("password"));
-                client.setCelebrity(resultSet.getBoolean("isCelebrity"));
-                client.setHasBankAccount(resultSet.getBoolean("hasBankAccount"));
-                client.setPersonID(resultSet.getInt("personID"));
-                client.setUserType(resultSet.getString("userType"));
+                user = new User();
+                user.setClientID(resultSet.getInt("clientID"));
+                user.setUserName(resultSet.getString("userName"));
+                user.setPassword(resultSet.getString("password"));
+                user.setCelebrity(resultSet.getBoolean("isCelebrity"));
+                user.setHasBankAccount(resultSet.getBoolean("hasBankAccount"));
+                user.setPersonID(resultSet.getInt("personID"));
+                user.setUserType(resultSet.getString("userType"));
             }
             System.out.println("Usurario encontrado exitosamente");
         } catch (SQLException e) {
@@ -143,7 +145,7 @@ public class UserDAO {
         }
 
         DBConnection.closeConnection(connection);
-        return client;
+        return user;
     }
 
     public void deleteUser(int clientID){
@@ -169,16 +171,17 @@ public class UserDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL)){
                 ResultSet resultSet = preparedStatement.executeQuery();
                 while(resultSet.next()){
-                    User client = new User();
-                    client.setClientID(resultSet.getInt("clientID"));
-                    client.setUserName(resultSet.getString("userName"));
-                    client.setPassword(resultSet.getString("password"));
-                    client.setCelebrity(resultSet.getBoolean("isCelebrity"));
-                    client.setHasBankAccount(resultSet.getBoolean("hasBankAccount"));
-                    client.setPersonID(resultSet.getInt("personID"));
-                    client.setUserType(resultSet.getString("userType"));
-                    users.add(client);
+                    User user = new User();
+                    user.setClientID(resultSet.getInt("clientID"));
+                    user.setUserName(resultSet.getString("userName"));
+                    user.setPassword(resultSet.getString("password"));
+                    user.setCelebrity(resultSet.getBoolean("isCelebrity"));
+                    user.setHasBankAccount(resultSet.getBoolean("hasBankAccount"));
+                    user.setPersonID(resultSet.getInt("personID"));
+                    user.setUserType(resultSet.getString("userType"));
+                    users.add(user);
                 }
+                System.out.println("lista de usuarios encontrados exitosamente");
        } catch(SQLException e){
            System.out.println("Error al leer la base de datos: ");
        }

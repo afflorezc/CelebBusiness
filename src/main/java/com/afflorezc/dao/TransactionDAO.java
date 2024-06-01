@@ -15,8 +15,8 @@ public class TransactionDAO {
                                                                         "transactionDate," +
                                                                         "transactionAmount," +
                                                                         "initialBalance," +
-                                                                        "finalBalance" +
-                                                                        "transactionType" +
+                                                                        "finalBalance," +
+                                                                        "transactionType) " +
                                                                         "VALUES" + 
                                                                         "(?, ?, ?, ?, ?, ?)";
     private static final String SELECT_TRANSACTION_BY_ID = "SELECT * FROM transaction WHERE transactionID = ?";
@@ -63,9 +63,9 @@ public class TransactionDAO {
                 transaction.setBankAccount(resultSet.getInt("bankAccount"));
                 transaction.setTransactionType(resultSet.getString("transactionType"));
             }
-            System.out.println("Usurario encontrado exitosamente");
+            System.out.println("Transacción encontrada exitosamente");
         } catch (SQLException e) {
-            System.out.println("Error al buscar al usuario: " + e.getMessage());
+            System.out.println("Error al buscar la transacción: " + e.getMessage());
         }
 
         DBConnection.closeConnection(connection);

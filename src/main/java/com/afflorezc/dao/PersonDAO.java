@@ -21,7 +21,7 @@ public class PersonDAO {
                                                                         "address," +
                                                                         "cellPhoneNumber," +
                                                                         "email," +
-                                                                        "registrationDate,)" +
+                                                                        "registrationDate) " +
                                                                         "VALUES" + 
                                                                         "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_PERSON_ID = "SELECT * FROM person WHERE personID = ?";
@@ -58,9 +58,9 @@ public class PersonDAO {
             preparedStatement.setString(10, newPerson.getEmail());
             preparedStatement.setDate(11, newPerson.getReistrationDate());
             preparedStatement.executeUpdate();
-            System.out.println("Usuario insertado exitosamente a la base de datos");
+            System.out.println("Nueva persona insertada exitosamente a la base de datos");
         } catch (SQLException e) {
-            System.out.println("Error al insertar un usuario: " + e.getMessage());
+            System.out.println("Error al insertar persona: " + e.getMessage());
         }
 
         DBConnection.closeConnection(connection);
@@ -86,9 +86,9 @@ public class PersonDAO {
                 preparedStatement.setDate(11, newPerson.getReistrationDate());
                 preparedStatement.setInt(12,personID);
                 preparedStatement.executeUpdate();
-                System.out.println("Usuario actualizado exitosamente a la base de datos");
+                System.out.println("datos persona actualizados exitosamente a la base de datos");
             } catch (SQLException e) {
-                System.out.println("Error al actualizar: " + e.getMessage());
+                System.out.println("Error al actualizar datos de persona: " + e.getMessage());
             }
 
             DBConnection.closeConnection(connection);
@@ -103,7 +103,7 @@ public class PersonDAO {
 
                 preparedStatement.execute();
         } catch(SQLException e){
-            System.out.println("Error al eliminar usuario con id: "+personID);
+            System.out.println("Error al eliminar persona con id: "+personID);
         }
 
         DBConnection.closeConnection(connection);
@@ -133,12 +133,34 @@ public class PersonDAO {
                     person.setCellPhoneNumber(resultSet.getString("cellPhoneNumber"));
                     person.setEmail(resultSet.getString("email"));
                     person.setReistrationDate(resultSet.getDate("registrationDate"));
+                    System.out.println("Persona encontrada correctamente por su documento");
                 }
         } catch (SQLException e) {
             System.out.println("Error al seleccionar un usuario por cédula: " + e.getMessage());
         }
         DBConnection.closeConnection(connection);
         return person;
+    }
+
+    // Retorna el primer personID de una persona cuyo documento es el indicado
+    // Esta función se usa de modo que se garantiza que el documento es único (constructor por fecha)
+    public int getPersonIDByDocument(String document){
+        int id = -1;
+        Connection connection = DBConnection.getConnection();
+        try (
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PERSON_DOC)) {
+            
+                preparedStatement.setString(1, document);
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    id = resultSet.getInt("personID");
+                    System.out.println("personID identificado de forma correcta");
+                }
+        } catch (SQLException e) {
+            System.out.println("Error al identificar el personID por cédula: " + e.getMessage());
+        }
+        DBConnection.closeConnection(connection);
+        return id;
     }
 
     // Se retorna una persona (o varias personas) persona de acuerdo a su documento de identidad
@@ -168,8 +190,9 @@ public class PersonDAO {
                     person.setReistrationDate(resultSet.getDate("registrationDate"));
                     persons.add(person);
                 }
+                System.out.println("Lista de personas recuperada de forma correcta");
         } catch (SQLException e) {
-            System.out.println("Error al seleccionar un usuario por cédula: " + e.getMessage());
+            System.out.println("Error al seleccionar lista de personas: " + e.getMessage());
         }
 
         DBConnection.closeConnection(connection);
@@ -200,8 +223,9 @@ public class PersonDAO {
                     person.setReistrationDate(resultSet.getDate("registrationDate"));
                     persons.add(person);
                 }
+                System.out.println("Lista de personas recuperada de forma correcta");
             } catch (SQLException e) {
-            System.out.println("Error al seleccionar todos los usuarios: " + e.getMessage());
+                System.out.println("Error al seleccionar lista de personas: " + e.getMessage());
             }
 
         DBConnection.closeConnection(connection);

@@ -20,8 +20,8 @@ public class BankAccountDAO {
                                                                         "embargoedValue," +
                                                                         "annualInterest," +
                                                                         "openDate," +
-                                                                        "cancelationDate" +
-                                                                        "accountType)" +
+                                                                        "cancelationDate," +
+                                                                        "accountType) " +
                                                                         "VALUES" + 
                                                                         "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ACCOUNT_NUMBER = "SELECT * FROM bank_account WHERE accountNumber = ?";

@@ -1,0 +1,59 @@
+package com.afflorezc.controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+
+import com.afflorezc.utils.Encryption;
+import com.afflorezc.model.User;
+import com.afflorezc.dao.UserDAO;
+
+@WebServlet("/login")
+public class Login extends HttpServlet {
+
+    private UserDAO userDAO; 
+
+    public Login(){
+        this.userDAO = new UserDAO();
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+       throws ServletException, IOException {
+
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        
+        // Se encripta la contraseña utilizando la libreria 'jBCrypt'
+        String encryptedPassword = Encryption.encryptWord(password);
+
+        User user = userDAO.selectUserByUserName(username);
+        
+        if(user == null){
+            request.setAttribute("message", "Wrong username");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        } else if(!encryptedPassword.equals(user.getPassword())){
+            request.setAttribute("message", "Wrong password");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }else{
+            // Creación de variable de sesion para uso
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            //Redireccionamiento
+            if(user.getUserType().equals("admin")){
+                response.sendRedirect("admin_session.jsp");
+            } else if(user.getUserType().equals("celebrity")){
+                response.sendRedirect("celeb_session.jsp");
+            } else{
+                response.sendRedirect("user_session.jsp");
+            }
+            
+        }
+
+    }
+
+}

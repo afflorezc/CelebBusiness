@@ -22,6 +22,8 @@ private String cellPhoneNumber;
 private String email;
 private Date registrationDate;
 
+private static int noNameIndex = 0;
+
     public Person(String document, String firstName, String secondName, 
             String lastName1, String lastName2, String birthPlace, String hometown,
             String address, String cellPhoneNumber, String email, Date registrationDate) {
@@ -40,6 +42,22 @@ private Date registrationDate;
     }
 
     public Person(){}
+
+    public Person(Date registrationDate){
+        noNameIndex++;
+        this.document = "No document " + Integer.toString(noNameIndex);
+        this.firstName = "No name";
+        this.secondName = " ";
+        this.lastName1 = "No surname";
+        this.lastName2 = " ";
+        this.birthPlace = "No place";
+        this.hometown = "No hometown";
+        this.address = "No address";
+        this.cellPhoneNumber = " ";
+        this.email = "No email";
+        this.registrationDate = registrationDate;
+
+    }
 
     public int getPersonID() {
         return personID;

@@ -36,7 +36,7 @@
             <div class="hero-container">
             <h1>Welcome to Celeb Business</h1>
             <h2>The site where all celebrities can buy and sell their properties and more!</h2>
-            <a href="register.jsp" class="btn-get-started scrollto">Get Started</a>
+            <a href="create_account.jsp" class="btn-get-started scrollto">Get Started</a>
             </div>
         </section><!-- #hero -->
 

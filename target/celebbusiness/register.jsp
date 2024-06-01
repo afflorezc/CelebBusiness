@@ -34,16 +34,31 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Be part of our family!</h2>
-          <p>Please fill out the following registration form and enjoy of be part of the greatest celebrity
-              association in the world!
+          <h2>You are now part of our family!</h2>
+          <p>Please fill out the following registration form to uptdate your personal info to finish
+            your registration.
           </p>
         </div>
 
         <div class="row">
 
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-about">
+            <h3>Celeb Business</h3>
+            <p>The experts are waiting for you. Please follow us. links to our official
+                social media accounts
+            </p>
+            <div class="social-links">
+                <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+                <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+                <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+            </div>
+            </div>
+          </div>
+
           <div class="col-lg-5 col-md-12">
-            <form action="register" method="post" role="form" class="php-email-form"> 
+            <form action="register" method="post" role="form" > <!--class="php-email-form"-->
 
               <div class="form-group">
                 <input type="text" name="document" class="form-control" id="name" placeholder="Your Document Number" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -95,11 +110,11 @@
                 <div class="validate"></div>
               </div>
 
-              <div class="mb-3">
+              <!--<div class="mb-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">You are now part of this selected and great family. Thank you!</div>
-              </div>
+              </div>-->
               <div class="text-center"><button type="submit">Register</button></div>
             </form>
           </div>
