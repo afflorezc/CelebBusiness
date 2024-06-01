@@ -34,7 +34,6 @@ public class Register extends HttpServlet {
         String address = request.getParameter("address");
         String cellPhoneNumber = request.getParameter("cell-phone");
         String email = request.getParameter("email");
-        Boolean admin = false;
 
         LocalDate today = LocalDate.now();
         Date registrationDate = Date.valueOf(today);
@@ -43,9 +42,10 @@ public class Register extends HttpServlet {
         //String contraseñaEncriptada = encriptarContraseña(contraseña);
 
         Person newPerson = new Person(document, firstName, secondName, lastName1, lastName2, birthPlace,
-                                    hometown, address, cellPhoneNumber, email, registrationDate, admin);
+                                    hometown, address, cellPhoneNumber, email, registrationDate);
         personDAO.insertPerson(newPerson);
 
+        response.isCommitted();
         // Redireccionamos a la página de registro exitoso
         response.sendRedirect("index.jsp");
     }

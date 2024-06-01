@@ -14,13 +14,14 @@ public class BankAccount {
     private double annualInterest;
     private Date openDate;
     private Date cancelationDate;
+    private String accountType;
 
     public BankAccount() {
     }
 
-    public BankAccount(int accountNumber, double annualInterest, Date openDate) {
+    public BankAccount(int accountNumber, String accountType, Date openDate) {
         this.accountNumber = accountNumber;
-        this.annualInterest = annualInterest;
+        this.accountType = accountType;
         this.openDate = openDate;
     }
 
@@ -102,6 +103,14 @@ public class BankAccount {
 
     public void setCancelationDate(Date cancelationDate) {
         this.cancelationDate = cancelationDate;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 
 }

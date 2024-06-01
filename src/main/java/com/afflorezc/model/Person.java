@@ -21,12 +21,10 @@ private String address;
 private String cellPhoneNumber;
 private String email;
 private Date registrationDate;
-private boolean admin;
 
     public Person(String document, String firstName, String secondName, 
             String lastName1, String lastName2, String birthPlace, String hometown,
-            String address, String cellPhoneNumber, String email, Date registrationDate, 
-            boolean admin) {
+            String address, String cellPhoneNumber, String email, Date registrationDate) {
         
         this.document = document;
         this.firstName = firstName;
@@ -39,7 +37,6 @@ private boolean admin;
         this.cellPhoneNumber = cellPhoneNumber;
         this.email = email;
         this.registrationDate = registrationDate;
-        this.admin = admin;
     }
 
     public Person(){}
@@ -138,13 +135,5 @@ private boolean admin;
 
     public void setReistrationDate(Date reistrationDate) {
         this.registrationDate = reistrationDate;
-    }
-
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public void setAsAdmin(boolean admin) {
-        this.admin = admin;
-    }    
+    }   
 }

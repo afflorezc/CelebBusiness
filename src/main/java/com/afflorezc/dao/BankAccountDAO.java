@@ -20,9 +20,10 @@ public class BankAccountDAO {
                                                                         "embargoedValue," +
                                                                         "annualInterest," +
                                                                         "openDate," +
-                                                                        "cancelationDate)" +
+                                                                        "cancelationDate" +
+                                                                        "accountType)" +
                                                                         "VALUES" + 
-                                                                        "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                                                        "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ACCOUNT_NUMBER = "SELECT * FROM bank_account WHERE accountNumber = ?";
     private static final String SELECT_ACCOUNT_USER_ID = "SELECT * FROM bank_account WHERE userName = ?";
     private static final String SELECT_ALL = "SELECT * FROM bank_account";
@@ -46,6 +47,7 @@ public class BankAccountDAO {
             preparedStatement.setDouble(8, account.getAnnualInterest());
             preparedStatement.setDate(9, account.getOpenDate());
             preparedStatement.setDate(10, account.getCancelationDate());
+            preparedStatement.setString(11, account.getAccountType());
             preparedStatement.executeUpdate();
             System.out.println("Cuenta creada exitosamente en la base de datos");
         } catch (SQLException e) {
@@ -110,6 +112,7 @@ public class BankAccountDAO {
                     account.setAnnualInterest(resultSet.getDouble("annualInterest"));
                     account.setOpenDate(resultSet.getDate("openDate"));
                     account.setCancelationDate(resultSet.getDate("cancelationDate"));
+                    account.setAccountType(resultSet.getString("accounType"));
                 }
             } catch (SQLException e){
                 System.out.println("Cuenta no encontrada: " + e.getMessage());
@@ -138,6 +141,7 @@ public class BankAccountDAO {
                     account.setAnnualInterest(resultSet.getDouble("annualInterest"));
                     account.setOpenDate(resultSet.getDate("openDate"));
                     account.setCancelationDate(resultSet.getDate("cancelationDate"));
+                    account.setAccountType(resultSet.getString("accounType"));
                 }
             } catch (SQLException e){
                 System.out.println("Cuenta no encontrada: " + e.getMessage());
@@ -167,6 +171,7 @@ public class BankAccountDAO {
                     account.setAnnualInterest(resultSet.getDouble("annualInterest"));
                     account.setOpenDate(resultSet.getDate("openDate"));
                     account.setCancelationDate(resultSet.getDate("cancelationDate"));
+                    account.setAccountType(resultSet.getString("accounType"));
                     accounts.add(account);
                 }
             } catch (SQLException e){
@@ -174,7 +179,5 @@ public class BankAccountDAO {
             }
             return accounts;
     }
-
-
  
 }

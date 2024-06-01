@@ -10,13 +10,13 @@ public class Transaction {
     private double transactionAmount;
     private double initialBalance;
     private double finalBalance;
-    private int transactionType; // manejarlo como enumerador
+    private String transactionType; 
 
     public Transaction() {
     }
 
     public Transaction(int bankAccount, Timestamp transactionDate, double transactionAmount, double initialBalance,
-            double finalBalance, int transactionType) {
+            double finalBalance, String transactionType) {
         this.bankAccount = bankAccount;
         this.transactionDate = transactionDate;
         this.transactionAmount = transactionAmount;
@@ -73,11 +73,11 @@ public class Transaction {
         this.finalBalance = finalBalance;
     }
 
-    public int getTransactionType() {
+    public String getTransactionType() {
         return transactionType;
     }
 
-    public void setTransactionType(int transactionType) {
+    public void setTransactionType(String transactionType) {
         this.transactionType = transactionType;
     }
     

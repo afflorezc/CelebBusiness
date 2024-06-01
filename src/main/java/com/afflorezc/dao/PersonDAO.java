@@ -21,10 +21,9 @@ public class PersonDAO {
                                                                         "address," +
                                                                         "cellPhoneNumber," +
                                                                         "email," +
-                                                                        "registrationDate," +
-                                                                        "isAdmin )" +
+                                                                        "registrationDate,)" +
                                                                         "VALUES" + 
-                                                                        "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                                                        "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_PERSON_ID = "SELECT * FROM person WHERE personID = ?";
     private static final String SELECT_PERSON_DOC = "SELECT * FROM person WHERE document = ?";
     private static final String SELECT_ALL = "SELECT * FROM person";
@@ -40,7 +39,7 @@ public class PersonDAO {
                                                                    "cellPhoneNumber = ?," +
                                                                    "email = ?," +
                                                                    "registrationDate = ?," +
-                                                                   "isAdmin = ? WHERE personID = ?";
+                                                                   "WHERE personID = ?";
     // Crear una persona
     public void insertPerson(Person newPerson) {
         
@@ -58,7 +57,6 @@ public class PersonDAO {
             preparedStatement.setString(9, newPerson.getCellPhoneNumber());
             preparedStatement.setString(10, newPerson.getEmail());
             preparedStatement.setDate(11, newPerson.getReistrationDate());
-            preparedStatement.setBoolean(12, newPerson.isAdmin());
             preparedStatement.executeUpdate();
             System.out.println("Usuario insertado exitosamente a la base de datos");
         } catch (SQLException e) {
@@ -86,8 +84,7 @@ public class PersonDAO {
                 preparedStatement.setString(9, newPerson.getCellPhoneNumber());
                 preparedStatement.setString(10, newPerson.getEmail());
                 preparedStatement.setDate(11, newPerson.getReistrationDate());
-                preparedStatement.setBoolean(12, newPerson.isAdmin());
-                preparedStatement.setInt(13,personID);
+                preparedStatement.setInt(12,personID);
                 preparedStatement.executeUpdate();
                 System.out.println("Usuario actualizado exitosamente a la base de datos");
             } catch (SQLException e) {
@@ -136,7 +133,6 @@ public class PersonDAO {
                     person.setCellPhoneNumber(resultSet.getString("cellPhoneNumber"));
                     person.setEmail(resultSet.getString("email"));
                     person.setReistrationDate(resultSet.getDate("registrationDate"));
-                    person.setAsAdmin(resultSet.getBoolean("isAdmin"));
                 }
         } catch (SQLException e) {
             System.out.println("Error al seleccionar un usuario por cédula: " + e.getMessage());
@@ -170,7 +166,6 @@ public class PersonDAO {
                     person.setCellPhoneNumber(resultSet.getString("cellPhoneNumber"));
                     person.setEmail(resultSet.getString("email"));
                     person.setReistrationDate(resultSet.getDate("registrationDate"));
-                    person.setAsAdmin(resultSet.getBoolean("isAdmin"));
                     persons.add(person);
                 }
         } catch (SQLException e) {
@@ -203,7 +198,6 @@ public class PersonDAO {
                     person.setCellPhoneNumber(resultSet.getString("cellPhoneNumber"));
                     person.setEmail(resultSet.getString("email"));
                     person.setReistrationDate(resultSet.getDate("registrationDate"));
-                    person.setAsAdmin(resultSet.getBoolean("isAdmin"));
                     persons.add(person);
                 }
             } catch (SQLException e) {
