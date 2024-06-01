@@ -138,8 +138,8 @@ public class UserDAO {
                 user.setHasBankAccount(resultSet.getBoolean("hasBankAccount"));
                 user.setPersonID(resultSet.getInt("personID"));
                 user.setUserType(resultSet.getString("userType"));
+                System.out.println("Usurario encontrado exitosamente");
             }
-            System.out.println("Usurario encontrado exitosamente");
         } catch (SQLException e) {
             System.out.println("Error al buscar al usuario: " + e.getMessage());
         }

@@ -30,7 +30,7 @@
     </head>
 
     <body>
-        <%@ include file="header3.jsp" %>
+        <%@ include file="header_celeb.jsp" %>
         <!-- ======= Hero Section ======= -->
         <section id="hero">
             <div class="hero-container">

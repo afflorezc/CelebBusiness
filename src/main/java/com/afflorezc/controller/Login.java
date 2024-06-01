@@ -35,10 +35,11 @@ public class Login extends HttpServlet {
         
         if(user == null){
             request.setAttribute("message", "Wrong username");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("user_login.jsp").forward(request, response);
         } else if(!encryptedPassword.equals(user.getPassword())){
             request.setAttribute("message", "Wrong password");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            System.out.println("Contraseña incorrecta");
+            request.getRequestDispatcher("user_login.jsp").forward(request, response);
         }else{
             // Creación de variable de sesion para uso
             HttpSession session = request.getSession();

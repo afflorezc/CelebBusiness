@@ -58,7 +58,7 @@
           </div>
 
           <div class="col-lg-5 col-md-12">
-            <form action="register" method="post" role="form" > <!--class="php-email-form"-->
+            <form action="register" method="post" role="form" class="php-email-form"> <!--class="php-email-form"-->
 
               <div class="form-group">
                 <input type="text" name="document" class="form-control" id="name" placeholder="Your Document Number" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -131,7 +131,7 @@
    <script src="assets/vendor/jquery/jquery.min.js"></script>
    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-   <script src="assets/vendor/php-email-form/validate.js"></script>
+   <!--<script src="assets/vendor/php-email-form/validate.js"></script>-->
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
    <script src="assets/vendor/venobox/venobox.min.js"></script>
 

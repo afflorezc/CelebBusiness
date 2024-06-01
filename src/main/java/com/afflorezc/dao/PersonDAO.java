@@ -38,7 +38,7 @@ public class PersonDAO {
                                                                    "address = ?," +
                                                                    "cellPhoneNumber = ?," +
                                                                    "email = ?," +
-                                                                   "registrationDate = ?," +
+                                                                   "registrationDate = ? " +
                                                                    "WHERE personID = ?";
     // Crear una persona
     public void insertPerson(Person newPerson) {

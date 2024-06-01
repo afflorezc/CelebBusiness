@@ -60,20 +60,20 @@
             <form action="login" method="post" role="form" class="php-email-form"> 
 
               <div class="form-group">
-                <input type="text" name="username" class="form-control" id="name" placeholder="User Name" data-rule="minlen:4" data-msg="Please enter your username" />
+                <input type="text" name="username" class="form-control" id="name" placeholder="User Name" required /> <!--data-rule="minlen:4" data-msg="Please enter your username" -->
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="password" name="password" class="form-control" id="name" placeholder="Password" data-rule="minlen:4" data-msg="Please enter your password" />
+                <input type="password" name="password" class="form-control" id="name" placeholder="Password" required /> <!--data-rule="minlen:4" data-msg="Please enter your password" -->
                 <div class="validate"></div>
               </div>
 
-              <!--<div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">You are now part of this selected and great family. Thank you!</div>
-              </div>-->
+              <div class="mb-3">
+                <!--<div class="loading">Loading</div>
+                <div class="error-message"></div>-->
+                <div class="message"></div>
+              </div>
               <div class="text-center"><button type="submit">Log in</button></div>
             </form>
           </div>
@@ -90,7 +90,7 @@
    <script src="assets/vendor/jquery/jquery.min.js"></script>
    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-   <script src="assets/vendor/php-email-form/validate.js"></script>
+   <!--<script src="assets/vendor/php-email-form/validate.js"></script>-->
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
    <script src="assets/vendor/venobox/venobox.min.js"></script>
 

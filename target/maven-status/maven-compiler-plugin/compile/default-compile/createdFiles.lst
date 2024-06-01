@@ -1,5 +1,6 @@
 com\afflorezc\controller\Register.class
 com\afflorezc\dao\UserDAO.class
+com\afflorezc\controller\RegisterUser.class
 com\afflorezc\model\BankTransfer.class
 com\afflorezc\model\Person.class
 com\afflorezc\utils\Encryption.class
@@ -8,6 +9,7 @@ com\afflorezc\dao\BankAccountDAO.class
 com\afflorezc\model\BankAccount.class
 com\afflorezc\dao\DBConnection.class
 com\afflorezc\dao\PersonDAO.class
+com\afflorezc\controller\RegisterPerson.class
 com\afflorezc\model\Transaction.class
 com\afflorezc\controller\Login.class
 com\afflorezc\model\User.class
