@@ -57,7 +57,7 @@
             </div>
 
           <div class="col-lg-5 col-md-12">
-            <form action="register" method="post" role="form" class="php-email-form"> <!--class="php-email-form"-->
+            <form action="register_user" method="post" role="form" class="php-email-form"> <!--class="php-email-form"-->
 
               <div class="form-group">
                 <input type="text" name="username" class="form-control" id="name" placeholder="User Name" required />  <!--data-rule="minlen:4" data-msg="Please enter your username" -->
@@ -77,7 +77,7 @@
               <div class="mb-3">
                 <!--<div class="loading">Loading</div>
                 <div class="error-message"></div>-->
-                <div class="message"></div>
+                <div class="message"><%=request.getAttribute("message") %></div>
               </div>
               <div class="text-center"><button type="submit">Register</button></div>
             </form>
