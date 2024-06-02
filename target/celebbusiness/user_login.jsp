@@ -72,7 +72,11 @@
               <div class="mb-3">
                 <!--<div class="loading">Loading</div>
                 <div class="error-message"></div>-->
-                <div class="message"></div>
+                  <div class="text-center">
+                    <% if(request.getAttribute("message")!= null){ %>
+                      <%= request.getAttribute("message")%> 
+                    <% } %>
+                  </div>
               </div>
               <div class="text-center"><button type="submit">Log in</button></div>
             </form>

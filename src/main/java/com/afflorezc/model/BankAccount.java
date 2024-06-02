@@ -17,6 +17,12 @@ public class BankAccount {
     private String accountType;
 
     public BankAccount() {
+
+        this.balance =0;
+        this.active = true;
+        this.cancelled = false;
+        this.embargoed = false;
+        this.embargoedValue = 0;
     }
 
     public BankAccount(int accountNumber, String accountType, Date openDate) {

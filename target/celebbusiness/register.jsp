@@ -58,7 +58,7 @@
           </div>
 
           <div class="col-lg-5 col-md-12">
-            <form action="register" method="post" role="form" class="php-email-form"> <!--class="php-email-form"-->
+            <form action="register_person" method="post" role="form" class="php-email-form"> <!--class="php-email-form"-->
 
               <div class="form-group">
                 <input type="text" name="document" class="form-control" id="name" placeholder="Your Document Number" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -110,11 +110,15 @@
                 <div class="validate"></div>
               </div>
 
-              <!--<div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">You are now part of this selected and great family. Thank you!</div>
-              </div>-->
+              <div class="mb-3">
+                <!--<div class="loading">Loading</div>
+                <div class="error-message"></div>-->
+                  <div class="text-center">
+                    <% if(request.getAttribute("message")!= null){ %>
+                      <%= request.getAttribute("message")%> 
+                    <% } %>
+                  </div>
+              </div>
               <div class="text-center"><button type="submit">Register</button></div>
             </form>
           </div>

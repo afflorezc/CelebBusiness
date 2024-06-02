@@ -60,12 +60,12 @@
             <form action="register_user" method="post" role="form" class="php-email-form"> <!--class="php-email-form"-->
 
               <div class="form-group">
-                <input type="text" name="username" class="form-control" id="name" placeholder="User Name" required />  <!--data-rule="minlen:4" data-msg="Please enter your username" -->
+                <input type="text" name="username" class="form-control" id="name" placeholder="User Name" required/>  <!--data-rule="minlen:4" data-msg="Please enter your username" -->
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="password" name="password" class="form-control" id="name" placeholder="Password" required /> <!--data-rule="minlen:4" data-msg="Please enter your password" -->
+                <input type="password" name="password" class="form-control" id="name" placeholder="Password" required/> <!--data-rule="minlen:4" data-msg="Please enter your password" -->
                 <div class="validate"></div>
               </div>
 
@@ -77,7 +77,11 @@
               <div class="mb-3">
                 <!--<div class="loading">Loading</div>
                 <div class="error-message"></div>-->
-                <div class="message"><%=request.getAttribute("message") %></div>
+                  <div class="text-center">
+                    <% if(request.getAttribute("message")!= null){ %>
+                      <%= request.getAttribute("message")%> 
+                    <% } %>
+                  </div>
               </div>
               <div class="text-center"><button type="submit">Register</button></div>
             </form>

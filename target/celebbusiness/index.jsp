@@ -59,7 +59,7 @@
                     <div class="text-center">
                     <h3>Call To Action</h3>
                     <p> Start the experience with us </p>
-                    <a class="cta-btn" href="#">Call To Action</a>
+                    <a class="cta-btn" href="#contact">Call us now!</a>
                     </div>
 
                 </div>

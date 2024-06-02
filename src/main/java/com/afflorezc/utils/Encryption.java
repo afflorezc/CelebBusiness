@@ -8,4 +8,8 @@ public class Encryption {
         return BCrypt.hashpw(word, BCrypt.gensalt());
     }
 
+    public static boolean checkPassword(String word, String hashedWord){
+        return BCrypt.checkpw(word, hashedWord);
+    }
+
 }

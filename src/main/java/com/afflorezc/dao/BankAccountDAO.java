@@ -25,7 +25,7 @@ public class BankAccountDAO {
                                                                         "VALUES" + 
                                                                         "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ACCOUNT_NUMBER = "SELECT * FROM bank_account WHERE accountNumber = ?";
-    private static final String SELECT_ACCOUNT_USER_ID = "SELECT * FROM bank_account WHERE userName = ?";
+    private static final String SELECT_ACCOUNT_USER_ID = "SELECT * FROM bank_account WHERE personID = ?";
     private static final String SELECT_ALL = "SELECT * FROM bank_account";
     private static final String DELETE_ACCOUNT = "DELETE FROM bank_account WHERE accountNumber = ?";
     private static final String UPDATE_BALANCE = "UPDATE bank_account SET balance = ? WHERE" +

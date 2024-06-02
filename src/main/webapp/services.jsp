@@ -6,9 +6,9 @@
 
         <div class="section-title">
             <h2>Services</h2>
-            <p>Explore all the diferent types of services we provide to you that will help you 
-                to control your finance and ensure you a very quiet life. No more stress, no more
-                legal issues with managers. In Celeb Business, you can have the control of our your
+            <p>Explore all the diferent types of services we provide to you, in order to help you 
+                to control your finances and ensure you a very quiet life. No more stress, no more
+                legal issues with managers. In Celeb Business, you can have the control of your
                 public and private life as a world big celebrity.
             </p>
         </div>
@@ -28,22 +28,23 @@
             </div>
             <div class="col-lg-4 col-md-6 icon-box">
                 <div class="icon"><i class="icofont-earth"></i></div>
-                <h4 class="title"><a href="">be global</a></h4>
+                <h4 class="title"><a href="">Be global</a></h4>
                 <p class="description">You are part of a cosmopolitan elite. Do not hesitate to buy in the 
-                most remote places of your residence, we do the hard job of necessary paperwork.
+                most remote places from your residence, we do the hard job of necessary paperwork.
                 </p>
             </div>
             <div class="col-lg-4 col-md-6 icon-box">
                 <div class="icon"><i class="icofont-image"></i></div>
-                <h4 class="title"><a href="">hq photos</a></h4>
+                <h4 class="title"><a href="">HQ photos</a></h4>
                 <p class="description">We have a group of experienced photographers that will capture the 
-                more distinguished details of your and other properties
+                more distinguished details of your properties and articles you want to offer to sell
                 </p>
             </div>
             <div class="col-lg-4 col-md-6 icon-box">
                 <div class="icon"><i class="icofont-settings"></i></div>
-                <h4 class="title"><a href="">custom settings</a></h4>
-                <p class="description">Customizable view of your account page </p>
+                <h4 class="title"><a href="">Custom settings</a></h4>
+                <p class="description">Customizable view of your account page for easy access to your  
+                    favorite tools </p>
             </div>
             <div class="col-lg-4 col-md-6 icon-box">
                 <div class="icon"><i class="icofont-tasks-alt"></i></div>
