@@ -11,11 +11,12 @@ import java.util.List;
 import com.afflorezc.model.SaleContract;
 
 public class SaleContractDAO {
-    private static final String INSERT_SALE_CONTRACT = "INSERT INTO sale_contract (propertyID, sellPrice, sellerID, buyerID, contractDate, paymentDate, auctionNumber, contractState, fulfillmentDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_SALE_CONTRACT = "INSERT INTO sale_contract (propertyID, sellPrice, sellerID, buyerID, contractDate, contractState, fulfillmentDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_SALE_CONTRACT_AUCTION = "INSERT INTO sale_contract (propertyID, sellPrice, sellerID, buyerID, contractDate, auctionNumber, contractState, fulfillmentDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_SALE_CONTRACT_ID = "SELECT * FROM sale_contract WHERE contractID = ?";
     private static final String SELECT_SALE_CONTRACT_USER = "SELECT * FROM sale_contract WHERE sellerID = ? OR buyerID = ?";
 
-    public void insertAuction(SaleContract saleContract){
+    public void insertSaleComtract(SaleContract saleContract){
 
         Connection connection = DBConnection.getConnection(); // haciendo la conexion a la base de datos
         
@@ -27,10 +28,34 @@ public class SaleContractDAO {
             preparedStatement.setInt(3, saleContract.getSellerID());
             preparedStatement.setInt(4, saleContract.getBuyerID());
             preparedStatement.setDate(5, saleContract.getContractDate());
-            preparedStatement.setDate(6, saleContract.getPaymentDate());
-            preparedStatement.setInt(7, saleContract.getAuctionNumber());
-            preparedStatement.setString(8, saleContract.getContractState());
-            preparedStatement.setDate(9, saleContract.getFulfillmentDate());
+            preparedStatement.setString(6, saleContract.getContractState());
+            preparedStatement.setDate(7, saleContract.getFulfillmentDate());
+
+            preparedStatement.executeUpdate(); // ejecutando la consulta sql
+
+            System.out.println("subasta creada exitosamente en la base de datos");
+        } catch (SQLException e) {
+            System.out.println("Error al insertar subasta: " + e.getMessage());
+        }
+
+        DBConnection.closeConnection(connection); // cerrando la conexion de la base de datos
+    }
+
+    public void insertSaleComtractWithAuction(SaleContract saleContract){
+
+        Connection connection = DBConnection.getConnection(); // haciendo la conexion a la base de datos
+        
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_SALE_CONTRACT_AUCTION); // ingresando la consulta sql
+
+            preparedStatement.setInt(1, saleContract.getPropertyID()); // pasandole los datos a la consulta de sql
+            preparedStatement.setDouble(2, saleContract.getSellPrice());
+            preparedStatement.setInt(3, saleContract.getSellerID());
+            preparedStatement.setInt(4, saleContract.getBuyerID());
+            preparedStatement.setDate(5, saleContract.getContractDate());
+            preparedStatement.setInt(6, saleContract.getAuctionNumber());
+            preparedStatement.setString(7, saleContract.getContractState());
+            preparedStatement.setDate(8, saleContract.getFulfillmentDate());
 
             preparedStatement.executeUpdate(); // ejecutando la consulta sql
 

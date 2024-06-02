@@ -110,7 +110,7 @@ CREATE TABLE `sale_contract` (
   `sellerID` int(11) NOT NULL,
   `buyerID` int(11) NOT NULL,
   `contractDate` date NOT NULL,
-  `paymentDate` date NOT NULL,
+  `paymentDate` date,
   `auctionNumber` int(11) DEFAULT NULL,
   `contractState` varchar(3) NOT NULL,
   `fulfillmentDate` date NOT NULL,
@@ -168,5 +168,35 @@ CREATE TABLE `bid`(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+-- celebbussiness.portfolio definition
 
+CREATE TABLE `portfolio` (
+  `portfolioID` int(11) NOT NULL AUTO_INCREMENT,
+  `unitValue` double NOT NULL,
+  `commision` double NOT NULL,
+  `portfolioName` varchar(50) NOT NULL,
+  `riskGrade` int(11) NOT NULL,
+  PRIMARY KEY (`portfolioID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- celebbussiness.inversion_account definition
+
+CREATE TABLE `inversion_account` (
+  `inversionNumber` int(11) NOT NULL AUTO_INCREMENT,
+  `inversionType` varchar(30) NOT NULL,
+  `balance` double NOT NULL,
+  `openDate` date NOT NULL,
+  `dueDate` date DEFAULT NULL,
+  `accumulatedProfit` double NOT NULL,
+  `chargedProfitOnTaxes` double NOT NULL,
+  `isEmbargoed` tinyint(1) NOT NULL,
+  `embargoedValue` double DEFAULT NULL,
+  `portfolioID` int(11) NOT NULL,
+  `personID` int(11) NOT NULL,
+  PRIMARY KEY (`inversionNumber`),
+  KEY `inversion_account_portfolio_FK` (`portfolioID`),
+  KEY `inversion_account_person_FK` (`personID`),
+  CONSTRAINT `inversion_account_person_FK` FOREIGN KEY (`personID`) REFERENCES `person` (`personID`),
+  CONSTRAINT `inversion_account_portfolio_FK` FOREIGN KEY (`portfolioID`) REFERENCES `portfolio` (`portfolioID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
  
