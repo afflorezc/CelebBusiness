@@ -127,6 +127,7 @@ CREATE TABLE `sale_contract` (
   CONSTRAINT `sale_contract_property_FK` FOREIGN KEY (`propertyID`) REFERENCES `property` (`propertyID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+
 -- celebbussiness.`transaction` definition
 
 CREATE TABLE `transaction` (
