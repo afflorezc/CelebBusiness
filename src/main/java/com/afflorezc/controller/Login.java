@@ -9,8 +9,6 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-import org.mindrot.jbcrypt.BCrypt;
-
 import com.afflorezc.utils.Encryption;
 import com.afflorezc.model.User;
 import com.afflorezc.dao.UserDAO;

@@ -114,6 +114,8 @@ CREATE TABLE `sale_contract` (
   `auctionNumber` int(11) DEFAULT NULL,
   `contractState` varchar(3) NOT NULL,
   `fulfillmentDate` date NOT NULL,
+  `contractState` varchar(3) NOT NULL,
+  `fulfillmentDate` date NOT NULL,
   PRIMARY KEY (`contractID`),
   KEY `sale_contract_property_FK` (`propertyID`),
   KEY `sale_contract_person_FK` (`sellerID`),
@@ -124,7 +126,6 @@ CREATE TABLE `sale_contract` (
   CONSTRAINT `sale_contract_person_FK_1` FOREIGN KEY (`buyerID`) REFERENCES `person` (`personID`),
   CONSTRAINT `sale_contract_property_FK` FOREIGN KEY (`propertyID`) REFERENCES `property` (`propertyID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
 
 -- celebbussiness.`transaction` definition
 
