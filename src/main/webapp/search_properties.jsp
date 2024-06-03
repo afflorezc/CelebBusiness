@@ -30,59 +30,20 @@
     </head>
 
     <body>
-        <%@ include file="header.jsp" %>
+        <%@ include file="header_user.jsp" %>
         <!-- ======= Hero Section ======= -->
         <section id="hero">
             <div class="hero-container">
-            <h1>Welcome to Celeb Business</h1>
-            <h2>The site where all celebrities can buy and sell their properties and more!</h2>
-            <a href="create_account.jsp" class="btn-get-started scrollto">Get Started</a>
+                <a href="#main" class="btn-get-started scrollto">Get Started</a>
             </div>
         </section><!-- #hero -->
 
         <main id="main">
 
-            <!-- ======= About Us Section ======= -->
-            <section id="about" class="about">
-                <%@ include file="about.jsp" %>
-            </section><!-- End About Us Section -->
-
-            <!-- ======= Services Section ======= -->
-            <section id="services" class="services section-bg">
-                <%@ include file="services.jsp" %>
-            </section><!-- End Services Section -->
-
-            <!-- ======= Call To Action Section ======= -->
-            <section class="call-to-action">
-                <div class="container">
-                    <div class="text-center">
-                    <h3>Call Us for Action</h3>
-                    <p> Start the experience with us </p>
-                    <a class="cta-btn" href="#contact">Call us now!</a>
-                    </div>
-
-                </div>
-            </section><!-- End Call To Action Section -->
-
             <!-- ======= Properties Section ======= -->
             <section id="properties" class="portfolio">
                 <%@ include file="properties.jsp" %>
             </section><!-- End Our Portfolio Section -->
-
-            <!-- ======= Frequently Asked Questions Section ======= -->
-            <section id="faq" class="faq section-bg">
-                <%@ include file="faq.jsp" %>
-            </section><!-- End Frequently Asked Questions Section -->
-
-            <!-- ======= Our Team Section ======= -->
-            <section id="team" class="team">
-                <%@ include file="team.jsp" %>
-            </section><!-- End Our Team Section -->
-
-            <!-- ======= Contact Us Section ======= -->
-            <section id="contact" class="contact section-bg">
-                <%@ include file="contact.jsp" %>
-            </section><!-- End Contact Us Section -->
 
             <!-- ======= Map Section ======= -->
             <section class="map">

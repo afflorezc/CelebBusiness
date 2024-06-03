@@ -5,15 +5,17 @@ public class Portfolio {
     private int portfolioID;
     private String portfolioName;
     private double unitValue;
+    private double minimumInvestment;
     private double commision;
     private int riskGrade;
 
     public Portfolio() {
     }
 
-    public Portfolio(String portfolioName, double unitValue, int riskGrade, double commision) {
+    public Portfolio(String portfolioName, double unitValue, double minimumInvestment,int riskGrade, double commision) {
         this.portfolioName = portfolioName;
         this.unitValue = unitValue;
+        this.minimumInvestment = minimumInvestment;
         this.riskGrade = riskGrade;
         this.commision = commision;
     }
@@ -56,6 +58,14 @@ public class Portfolio {
 
     public void setCommision(double commision) {
         this.commision = commision;
+    }
+
+    public double getMinimumInvestment() {
+        return minimumInvestment;
+    }
+
+    public void setMinimumInvestment(double minimumInvestment) {
+        this.minimumInvestment = minimumInvestment;
     }
 
 }

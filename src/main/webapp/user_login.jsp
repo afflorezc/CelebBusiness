@@ -30,64 +30,86 @@
   </head>
 
   <body>
-    <section id="contact" class="contact section-bg">
-      <div class="container">
 
-        <div class="section-title">
-          <h2>Follow your business!</h2>
-          <p>Login in to your account and don't miss any good offer for you, get into the business!
-          </p>
-        </div>
+    <%@ include file="header.jsp" %>
+    <main id="main">
+        <section id="contact" class="contact section-bg">
+          <div class="container">
 
-        <div class="row">
-
-            <div class="col-lg-4 col-md-6">
-                <div class="contact-about">
-                <h3>Celeb Business</h3>
-                <p>The experts are waiting for you. Please follow us. links to our official
-                    social media accounts
-                </p>
-                <div class="social-links">
-                    <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-                    <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
-                </div>
-                </div>
+            <div class="section-title">
+              <h2>Follow your business!</h2>
+              <p>Login in to your account and don't miss any good offer for you, get into the business!
+              </p>
             </div>
 
-          <div class="col-lg-5 col-md-12">
-            <form action="login" method="post" role="form" class="php-email-form"> 
+            <div class="row">
 
-              <div class="form-group">
-                <input type="text" name="username" class="form-control" id="name" placeholder="User Name" required /> <!--data-rule="minlen:4" data-msg="Please enter your username" -->
-                <div class="validate"></div>
-              </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-about">
+                    <h3>Celeb Business</h3>
+                    <p>The experts are waiting for you. Please follow us. links to our official
+                        social media accounts
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+                    </div>
+                    </div>
+                </div>
 
-              <div class="form-group">
-                <input type="password" name="password" class="form-control" id="name" placeholder="Password" required /> <!--data-rule="minlen:4" data-msg="Please enter your password" -->
-                <div class="validate"></div>
-              </div>
+              <div class="col-lg-5 col-md-12">
+                <form action="login" method="post" role="form" class="php-email-form"> 
 
-              <div class="mb-3">
-                <!--<div class="loading">Loading</div>
-                <div class="error-message"></div>-->
-                  <div class="text-center">
-                    <% if(request.getAttribute("message")!= null){ %>
-                      <%= request.getAttribute("message")%> 
-                    <% } %>
+                  <div class="form-group">
+                    <input type="text" name="username" class="form-control" id="name" placeholder="User Name" required /> <!--data-rule="minlen:4" data-msg="Please enter your username" -->
+                    <div class="validate"></div>
                   </div>
+
+                  <div class="form-group">
+                    <input type="password" name="password" class="form-control" id="name" placeholder="Password" required /> <!--data-rule="minlen:4" data-msg="Please enter your password" -->
+                    <div class="validate"></div>
+                  </div>
+
+                  <div class="mb-3">
+                    <!--<div class="loading">Loading</div>
+                    <div class="error-message"></div>-->
+                      <div class="text-center">
+                        <% if(request.getAttribute("message")!= null){ %>
+                          <%= request.getAttribute("message")%> 
+                        <% } %>
+                      </div>
+                  </div>
+                  <div class="text-center"><button type="submit">Log in</button></div>
+                </form>
               </div>
-              <div class="text-center"><button type="submit">Log in</button></div>
-            </form>
+
+            </div>
+
           </div>
 
-        </div>
+        </section>
+    </main>
 
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container">
+      <div class="copyright">
+          &copy; Copyright <strong><span>Celeb Business</span></strong>. All Rights Reserved
       </div>
+      <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-one-page-bootstrap-template-amoeba/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+      </div>
+    </footer><!-- End #footer -->
 
-    </section>
-
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    
   </body>
 
    <!-- Vendor JS Files -->

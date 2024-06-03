@@ -40,10 +40,11 @@ public class RegisterUser extends HttpServlet {
                 request.setAttribute("message", "The selected username is in used, please try other one");
                 request.getRequestDispatcher("create_account.jsp").forward(request, response);
             } else{
-                // Se crea la persona con nombres y documento base "No document"
+                
+
                 LocalDate today = LocalDate.now();
-                Date registrationDate = Date.valueOf(today);
-                Person newPerson = new Person(registrationDate);
+                Date OpenDate = Date.valueOf(today);
+                Person newPerson = new Person(OpenDate);
                 
                 personDAO.insertPerson(newPerson);
                 int personID = -1;
@@ -60,19 +61,18 @@ public class RegisterUser extends HttpServlet {
                 newUser.setHasBankAccount(false);
                 newUser.setPersonID(personID);
 
-                if(isCelebrity.equals("1")){
-                    newUser.setUserType("celebrity");
-                    newUser.setCelebrity(true);
-                } else {
+                if(isCelebrity == null){
                     newUser.setUserType("user");
                     newUser.setCelebrity(false);
+                } else {
+                    newUser.setUserType("celebrity");
+                    newUser.setCelebrity(true);
                 }
                 
                 userDAO.insertUser(newUser);
                 HttpSession session = request.getSession(true);
                 session.setAttribute("registering", newPerson);
-                // Hacer que se devuelva al registro pero se cambie el form para que ingrese
-                // datos personales. O manejarlo desde otra pagina
+                
                 response.sendRedirect("register.jsp");
             }
         } else {

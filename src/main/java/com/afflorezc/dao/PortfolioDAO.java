@@ -15,16 +15,20 @@ public class PortfolioDAO {
     private static final String INSERT_PORTFOLIO = "INSERT INTO portfolio (unitValue," +
                                                                         "commision," +
                                                                         "portfolioName," +
-                                                                        "riskGrade) " +
+                                                                        "riskGrade. " +
+                                                                        "minimumInvestment) "+
                                                                         "VALUES" + 
-                                                                        "(?, ?, ?, ?)";
+                                                                        "(?, ?, ?, ?, ?)";
     private static final String SELECT_PORTFOLIO_NUMBER = "SELECT * FROM portfolio WHERE portfolioID = ?";
     private static final String SELECT_ALL = "SELECT * FROM portfolio";
     private static final String DELETE_PORTFOLIO = "DELETE FROM portfolio WHERE portfolioID = ?";
+    private static final String SELECT_PORTFOLIO_NUMBER_BY_NAME = "SELECT portfolioID FROM portfolio "+
+                                                                   "WHERE portfolioName = ?"; 
     private static final String UPDATE_PORTFOLIO = "UPDATE portfolio SET unitValue = ?, " +
                                                                     "commision = ?," +
-                                                                    "portfolioName = ?" +
-                                                                    "riskGrade = ?" +
+                                                                    "portfolioName = ?," +
+                                                                    "riskGrade = ?," +
+                                                                    "minimumInvestment = ?" +
                                                                     "WHERE" +
                                                                     "portfolioID = ?)";
 
@@ -38,6 +42,7 @@ public class PortfolioDAO {
             preparedStatement.setDouble(2, portfolio.getCommision());
             preparedStatement.setString(3, portfolio.getPortfolioName());
             preparedStatement.setInt(4, portfolio.getRiskGrade());
+            preparedStatement.setDouble(5, portfolio.getMinimumInvestment());
             preparedStatement.executeUpdate();
             System.out.println("Portafolio creado exitosamente en la base de datos");
         } catch (SQLException e) {
@@ -57,6 +62,7 @@ public class PortfolioDAO {
             preparedStatement.setDouble(2, portfolio.getCommision());
             preparedStatement.setString(3, portfolio.getPortfolioName());
             preparedStatement.setInt(4, portfolio.getRiskGrade());
+            preparedStatement.setDouble(5, portfolio.getMinimumInvestment());
             preparedStatement.setInt(5,portfolioID);
             preparedStatement.executeUpdate();
             System.out.println("Portafolio actualizado exitosamente en la base de datos");
@@ -83,7 +89,7 @@ public class PortfolioDAO {
         DBConnection.closeConnection(connection);
     }
 
-     public Portfolio selectAccountByNumber(int portfolioID){
+     public Portfolio selectPortfolioByNumber(int portfolioID){
 
         Portfolio portfolio = null;
         Connection connection = DBConnection.getConnection();
@@ -104,6 +110,7 @@ public class PortfolioDAO {
             } catch (SQLException e){
                 System.out.println("Error en busqueda de portafolio: " + e.getMessage());
             }
+            DBConnection.closeConnection(connection);
             return portfolio;
     }
 
@@ -129,8 +136,50 @@ public class PortfolioDAO {
             } catch (SQLException e){
                 System.out.println("Error en busqueda de portafolio: " + e.getMessage());
             }
+            DBConnection.closeConnection(connection);
             return portfolios;
     }
 
+    public double maxRequiredInvestment(List<Portfolio> portfolios){
 
+        double max=0;
+        
+        for(Portfolio portfolio:portfolios){
+            if(portfolio.getMinimumInvestment()>max){
+                max = portfolio.getMinimumInvestment();
+            }
+        }
+        return max;
+    }
+
+    public List<Double> minRequiredInvestment(List<Portfolio> portfolios){
+        
+        List<Double> minInvestmentList = new ArrayList<Double>();
+        for(Portfolio portfolio:portfolios){
+            minInvestmentList.add(portfolio.getMinimumInvestment());
+        }
+        return minInvestmentList;
+    }
+
+    public int getPortfolioID(String portfolioName){
+
+        int portfolioID = -1;
+        Connection connection = DBConnection.getConnection();
+
+        try(
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PORTFOLIO_NUMBER_BY_NAME)){
+                preparedStatement.setString(1, portfolioName);
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if(resultSet.next()){
+                    portfolioID = resultSet.getInt("portfolioID");
+                }
+            } catch (SQLException e){
+                System.out.println("Error en busqueda de portafolio: " + e.getMessage());
+            }
+
+            DBConnection.closeConnection(connection);
+            return portfolioID;
+
+    }
+        
 }

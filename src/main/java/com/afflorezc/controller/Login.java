@@ -47,8 +47,6 @@ public class Login extends HttpServlet {
             //Redireccionamiento
             if(user.getUserType().equals("admin")){
                 response.sendRedirect("admin_session.jsp");
-            } else if(user.getUserType().equals("celebrity")){
-                response.sendRedirect("celeb_session.jsp");
             } else{
                 response.sendRedirect("user_session.jsp");
             }

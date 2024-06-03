@@ -120,17 +120,18 @@ public class BankAccountDAO {
             return account;
     }
 
-    public BankAccount selectAccountByPersonID(int personID){
+    public List<BankAccount> selectAccountByPersonID(int personID){
 
-        BankAccount account = null;
+        List<BankAccount> accounts = new ArrayList<BankAccount>();
         Connection connection = DBConnection.getConnection();
 
         try(
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ACCOUNT_USER_ID)){
                 preparedStatement.setInt(1, personID);
                 ResultSet resultSet = preparedStatement.executeQuery();
-                if(resultSet.next()){
-                    account = new BankAccount();
+                while(resultSet.next()){
+                    
+                    BankAccount account = new BankAccount();
                     account.setAccountNumber(resultSet.getInt("accountNumber"));
                     account.setPersonID(resultSet.getInt("personID"));
                     account.setBalance(resultSet.getDouble("balance"));
@@ -142,11 +143,24 @@ public class BankAccountDAO {
                     account.setOpenDate(resultSet.getDate("openDate"));
                     account.setCancelationDate(resultSet.getDate("cancelationDate"));
                     account.setAccountType(resultSet.getString("accounType"));
+
+                    accounts.add(account);
                 }
             } catch (SQLException e){
                 System.out.println("Cuenta no encontrada: " + e.getMessage());
             }
-            return account;
+            return accounts;
+    }
+
+    public boolean userHasAccount(int personID, String accountType){
+        
+        List<BankAccount> accounts = selectAccountByPersonID(personID);
+        for(BankAccount account:accounts){
+            if(account.getAccountType().equals(accountType)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<BankAccount> selectAllAccounts(){

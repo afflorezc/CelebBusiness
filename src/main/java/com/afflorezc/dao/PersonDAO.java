@@ -109,6 +109,22 @@ public class PersonDAO {
         DBConnection.closeConnection(connection);
     }
 
+    public boolean existPerson(int personID){
+        Person person = selectPersonByID(personID);
+        if(person==null){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validPerson(int personID){
+
+        Person person = selectPersonByID(personID);
+        if(person.getFirstName().equals("No name")){
+            return false;
+        }
+        return true;
+    }
     // Se retorna una persona de acuerdo a su personID (clave primaria es única)
     public Person selectPersonByID(int personID) {
         Person person = null;

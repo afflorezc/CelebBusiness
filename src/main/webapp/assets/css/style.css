@@ -501,7 +501,7 @@ section {
 # Call To Action
 --------------------------------------------------------------*/
 .call-to-action {
-  background: linear-gradient(rgba(1, 41, 42, 0.5), rgba(7, 56, 57, 0.5)), url("../img/call-to-action-bg.jpg") fixed center center;
+  background: linear-gradient(rgba(1, 41, 42, 0.5), rgba(7, 56, 57, 0.5)), url("../img/hero-background-1.jpg") fixed center center;
   background-size: cover;
   padding: 60px 0;
 }

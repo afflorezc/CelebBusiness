@@ -180,8 +180,25 @@ CREATE TABLE `portfolio` (
   `commision` double NOT NULL,
   `portfolioName` varchar(50) NOT NULL,
   `riskGrade` int(11) NOT NULL,
+  `minimumInvestment` double NOT NULL,
   PRIMARY KEY (`portfolioID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--celebbussiness.portfolio instertions
+INSERT INTO portfolio (unitValue, commision, portfolioName, riskGrade, minimumInvestment) 
+VALUES (1000, 0.02, 'American Indexes', 5, 500000);
+
+INSERT INTO portfolio (unitValue, commision, portfolioName, riskGrade, minimumInvestment) 
+VALUES (1000, 0.02, 'International Indexes', 3, 1000000);
+
+INSERT INTO portfolio (unitValue, commision, portfolioName, riskGrade, minimumInvestment) 
+VALUES (1000, 0.02, 'Asian Indexes', 4, 250000);
+
+INSERT INTO portfolio (unitValue, commision, portfolioName, riskGrade, minimumInvestment) 
+VALUES (1000, 0.02, 'Conserrvative', 1, 800000);
+
+INSERT INTO portfolio (unitValue, commision, portfolioName, riskGrade, minimumInvestment) 
+VALUES (1000, 0.02, 'Balanced Risk', 2, 150000);
 
 -- celebbussiness.inversion_account definition
 
