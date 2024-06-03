@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
         
         // Se encripta la contraseña utilizando la libreria 'jBCrypt'
-        String encryptedPassword = Encryption.encryptWord(password);
+        //password = Encryption.encryptWord(password);
 
         User user = userDAO.selectUserByUserName(username);
         
@@ -38,14 +38,14 @@ public class Login extends HttpServlet {
         if(user == null){
             request.setAttribute("message", "Wrong username");
             request.getRequestDispatcher("user_login.jsp").forward(request, response);
-        } else if(!encryptedPassword.equals(user.getPassword())){
+        } else if(!Encryption.checkPassword(password, user.getPassword())){
             request.setAttribute("message", "Wrong password");
             System.out.println("Contraseña incorrecta");
             request.getRequestDispatcher("user_login.jsp").forward(request, response);
         }else{
             // Creación de variable de sesion para uso
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("user_session", user);
             //Redireccionamiento
             if(user.getUserType().equals("admin")){
                 response.sendRedirect("admin_session.jsp");

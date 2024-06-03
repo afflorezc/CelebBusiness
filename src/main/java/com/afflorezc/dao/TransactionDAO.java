@@ -20,7 +20,8 @@ public class TransactionDAO {
                                                                         "VALUES" + 
                                                                         "(?, ?, ?, ?, ?, ?)";
     private static final String SELECT_TRANSACTION_BY_ID = "SELECT * FROM transaction WHERE transactionID = ?";
-    private static final String SELECT_ALL = "SELECT * FROM transaction WHERE bankAccount = ?";
+    private static final String SELECT_ALL_TRANSACTIONS = "SELECT * FROM transaction";
+    private static final String SELECT_TRANSACTIONS_FOR_ACCOUNT = "SELECT * FROM transaction WHERE bankAccount=?";
 
     public void insertTransaction(Transaction transaction){
 
@@ -38,7 +39,7 @@ public class TransactionDAO {
             preparedStatement.executeUpdate();
             System.out.println("Transacción registrada con éxito");
         } catch (SQLException e) {
-            System.out.println("Error al insertar un usuario: " + e.getMessage());
+            System.out.println("Error al registrar transacción: " + e.getMessage());
         }
 
         DBConnection.closeConnection(connection);
@@ -73,13 +74,13 @@ public class TransactionDAO {
 
     }
 
-    public List<Transaction> selectAllTransactions(int bankAccount){
+    public List<Transaction> selectAllTransactions(){
 
         List<Transaction> transactions = new ArrayList<Transaction>();
         Connection connection = DBConnection.getConnection();
 
         try (
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL)){
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_TRANSACTIONS)){
                 ResultSet resultSet = preparedStatement.executeQuery();
                 while(resultSet.next()){
                     Transaction transaction = new Transaction();
@@ -98,7 +99,34 @@ public class TransactionDAO {
 
        DBConnection.closeConnection(connection);
        return transactions;
+    }
 
+    public List<Transaction> selectAllTransactions(int bankAccount){
+
+        List<Transaction> transactions = new ArrayList<Transaction>();
+        Connection connection = DBConnection.getConnection();
+
+        try (
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_TRANSACTIONS_FOR_ACCOUNT)){
+                preparedStatement.setInt(1, bankAccount);
+                ResultSet resultSet = preparedStatement.executeQuery();
+                while(resultSet.next()){
+                    Transaction transaction = new Transaction();
+                    transaction.setTransactionID(resultSet.getInt("transactionID"));
+                    transaction.setTransactionDate(resultSet.getTimestamp("transactionDate"));
+                    transaction.setTransactionAmount(resultSet.getDouble("transactionAmount"));
+                    transaction.setInitialBalance(resultSet.getDouble("initialBalance"));
+                    transaction.setFinalBalance(resultSet.getDouble("finalBalance"));
+                    transaction.setBankAccount(resultSet.getInt("bankAccount"));
+                    transaction.setTransactionType(resultSet.getString("transactionType"));
+                    transactions.add(transaction);
+                }
+       } catch(SQLException e){
+           System.out.println("Error al leer la base de datos: ");
+       }
+
+       DBConnection.closeConnection(connection);
+       return transactions;
     }
 
 }

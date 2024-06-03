@@ -155,8 +155,10 @@ CREATE TABLE `transaction` (
   CONSTRAINT `transaction_bank_account_FK` FOREIGN KEY (`bankAccount`) REFERENCES `bank_account` (`accountNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+-- celebbussiness.`bid` definition
+
 CREATE TABLE `bid`(
-  `bidID` int NOT NULL AUTO_INCREMENT,
+  `bidID` int NOT NULL  AUTO_INCREMENT,
   `auctionID` int NOT NULL,
   `offererID` int NOT NULL,
   `bidValue` double NOT NULL,

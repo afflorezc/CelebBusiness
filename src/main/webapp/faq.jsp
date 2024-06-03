@@ -10,59 +10,60 @@
 
         <ul class="faq-list">
 
-        <li>
-            <a data-toggle="collapse" class="" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="icofont-simple-up"></i></a>
-            <div id="faq1" class="collapse show" data-parent=".faq-list">
-            <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-            </p>
-            </div>
-        </li>
+            <li>
+                <a data-toggle="collapse" class="" href="#faq1">How I can get the services? <i class="icofont-simple-up"></i></a>
+                <div id="faq1" class="collapse show" data-parent=".faq-list">
+                <p>
+                    The digital era allow us all, a more effective way to acomplish our task. Is just that
+                    simple as click into registration links, crate in less than one minute your create_account, 
+                    and you will be ready to explore and subscribe to the services.
+                </p>
+                </div>
+            </li>
 
-        <li>
-            <a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="icofont-simple-up"></i></a>
-            <div id="faq2" class="collapse" data-parent=".faq-list">
-            <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-            </p>
-            </div>
-        </li>
+            <li>
+                <a data-toggle="collapse" href="#faq2" class="collapsed">Is there some kind of subscription fee? <i class="icofont-simple-up"></i></a>
+                <div id="faq2" class="collapse" data-parent=".faq-list">
+                <p>
+                    Yes! you will be charged after opening a bank account, which is necessary to do all the desired
+                    transactions inside the web. The cost depends of the type of your subscription to our services
+                    but is not greater than 10 dollars!
+                </p>
+                </div>
+            </li>
 
-        <li>
-            <a data-toggle="collapse" href="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="icofont-simple-up"></i></a>
-            <div id="faq3" class="collapse" data-parent=".faq-list">
-            <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-            </p>
-            </div>
-        </li>
+            <li>
+                <a data-toggle="collapse" href="#faq3" class="collapsed">I am not a celebrity. Can I use our services? <i class="icofont-simple-up"></i></a>
+                <div id="faq3" class="collapse" data-parent=".faq-list">
+                <p>
+                    This is a selected community arround the globe of high wealthness people. We reserve the rights
+                    of admission according your legacy!
+                </p>
+                </div>
+            </li>
 
-        <li>
-            <a data-toggle="collapse" href="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="icofont-simple-up"></i></a>
-            <div id="faq4" class="collapse" data-parent=".faq-list">
-            <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-            </p>
-            </div>
-        </li>
+            <li>
+                <a data-toggle="collapse" href="#faq4" class="collapsed">What services are offered by the bank? <i class="icofont-simple-up"></i></a>
+                <div id="faq4" class="collapse" data-parent=".faq-list">
+                <p>
+                    You can reach all edges of market with our inestments experts. We offer to you a selected 
+                    portfolio ranging from low to high risk. You can choice to use between differents financial
+                    instruments and earn a lot of profit.
+                </p>
+                </div>
+            </li>
 
-        <li>
-            <a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="icofont-simple-up"></i></a>
-            <div id="faq5" class="collapse" data-parent=".faq-list">
-            <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-            </p>
-            </div>
-        </li>
-
-        <li>
-            <a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="icofont-simple-up"></i></a>
-            <div id="faq6" class="collapse" data-parent=".faq-list">
-            <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-            </p>
-            </div>
-        </li>
+            <li>
+                <a data-toggle="collapse" href="#faq5" class="collapsed">How is the process to can sell a house? <i class="icofont-simple-up"></i></a>
+                <div id="faq5" class="collapse" data-parent=".faq-list">
+                <p>
+                    All users can upload a detailed description of their properties and assign a price. Every user
+                    is able to navigate and search through all offers and contact directly to the offerent. There will be
+                    always an intermediation between clients. We help the two interested parties to get their maximum
+                    benefit
+                </p>
+                </div>
+            </li>
 
         </ul>
 

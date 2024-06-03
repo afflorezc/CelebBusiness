@@ -53,7 +53,7 @@ public class RegisterUser extends HttpServlet {
                 
                 newPerson.setPersonID(personID);
                 String isCelebrity = request.getParameter("celebrity");
-                //password = Encryption.encryptWord(password);
+                password = Encryption.encryptWord(password);
                 User newUser = new User();
                 newUser.setUserName(username);
                 newUser.setPassword(password);

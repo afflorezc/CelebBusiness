@@ -13,19 +13,21 @@
             <img src="assets/img/about-img.jpg" class="img-fluid" alt="">
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1">
-            <h3>High quality in management of your patrimony</h3>
+            <h3>High quality in management of your legacy</h3>
             <p class="font-italic">
             The best experts guiding you to the success!
             </p>
             <ul>
             <li><i class="icofont-check-circled"></i> Valuation of properties.</li>
             <li><i class="icofont-check-circled"></i> Auctions services.</li>
-            <li><i class="icofont-check-circled"></i> Centralized bank operations.</li>
+            <li><i class="icofont-check-circled"></i> Centralized bank operations</li>
+            <li><i class="icofont-check-circled"></i> Inversions in different instruments</li>
             </ul>
             <p>
             You are welcome to trust all your goods in the best hands. It had never been easier and safe, in 
             Celeb Business you get instant information about sell and buy offers of a large portfolio of 
-            properties arround all the globe.
+            properties arround all the globe. We also offer the opportunity to buy and sell very precious
+            objects of interest that many celebrities have owned over years! 
             </p>
         </div>
         </div>
