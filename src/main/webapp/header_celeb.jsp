@@ -21,8 +21,6 @@
           <li><a href="#call-to-action">Submit property </a></li>
           <li><a href="#properties">Bank Services</a></li>
           <li><a href="#team">Personal info and Settings</a></li>
-          <li><a href="#contact">Fans and followers</a></li>
-          <li><a href="index.jsp">Contact Us</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 

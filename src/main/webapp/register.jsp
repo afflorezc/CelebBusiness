@@ -61,52 +61,52 @@
             <form action="register_person" method="post" role="form" class="php-email-form"> <!--class="php-email-form"-->
 
               <div class="form-group">
-                <input type="text" name="document" class="form-control" id="name" placeholder="Your Document Number" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="document" class="form-control" id="name" placeholder="Your Document Number" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="text" name="second-name" class="form-control" id="second-name" placeholder="Your Second Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="second-name" class="form-control" id="second-name" placeholder="Your Second Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="text" name="lastname1" class="form-control" id="lastname1" placeholder="Your Surname" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="lastname1" class="form-control" id="lastname1" placeholder="Your Surname" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="text" name="lastname2" class="form-control" id="lastname2" placeholder="Your Second Surname" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="lastname2" class="form-control" id="lastname2" placeholder="Your Second Surname" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="text" name="birthplace" class="form-control" id="birthplace" placeholder="Your Birth Place" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="birthplace" class="form-control" id="birthplace" placeholder="Your Birth Place" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="text" name="hometown" class="form-control" id="hometown" placeholder="Your Current Hometown" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="hometown" class="form-control" id="hometown" placeholder="Your Current Hometown" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="text" name="address" class="form-control" id="address" placeholder="Your Address" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="address" class="form-control" id="address" placeholder="Your Address" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="text" name="cell-phone" class="form-control" id="cell-phone" placeholder="Your Cell Phone Number" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="cell-phone" class="form-control" id="cell-phone" placeholder="Your Cell Phone Number" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" required/>
                 <div class="validate"></div>
               </div>
 

@@ -33,6 +33,8 @@ public class Login extends HttpServlet {
 
         User user = userDAO.selectUserByUserName(username);
         
+        System.out.println(username);
+
         if(user == null){
             request.setAttribute("message", "Wrong username");
             request.getRequestDispatcher("user_login.jsp").forward(request, response);
