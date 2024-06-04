@@ -16,7 +16,7 @@
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
           <li class="active"><a href="user_session.jsp">Home</a></li>
-          <li><a href="search_propeties">Properties</a></li>
+          <li><a href="search_properties">Properties</a></li>
           <li><a href="#main">Auctions</a></li>
           <li><a href="#main">Submit property</a></li>
           <li><a href="bank.jsp">Bank</a></li>

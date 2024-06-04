@@ -67,16 +67,6 @@
             </div>
     
             <div class="row">
-                <div class="col-lg-12">
-                    <ul id="portfolio-flters">
-                    <li data-filter="*" class="filter-active">All</li>
-                    <li data-filter=".filter-house">Houses</li>
-                    <li data-filter=".filter-aptment">Apartments</li>
-                    <li data-filter=".filter-smallapt">Small apartments</li>
-                    <li data-filter=".filter-art">Fine Art</li>
-                    <li data-filter=".filter-collectible">Collectibles</li>
-                    </ul>
-                </div>
     
             <div class="row">
                 <div class="col-lg-12">
