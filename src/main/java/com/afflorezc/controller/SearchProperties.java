@@ -14,24 +14,23 @@ import jakarta.servlet.http.HttpSession;
 import com.afflorezc.dao.PropertyDAO;
 import com.afflorezc.model.Property;
 
-@WebServlet("/search_propeties")
-public class SearchPropeties extends HttpServlet{
+@WebServlet("/search_properties")
+public class SearchProperties extends HttpServlet{
     PropertyDAO propertyDAO;
 
-    public SearchPropeties() {
+    public SearchProperties() {
         propertyDAO = new PropertyDAO();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException {
-            System.out.println("llego al servlet");
             List<Property> properties = new ArrayList<Property>();
 
             properties = propertyDAO.selectAllProperties();
 
             request.setAttribute("properties", properties);
 
-            request.getRequestDispatcher("search_propeties.jsp").forward(request, response);
+            request.getRequestDispatcher("search_properties.jsp").forward(request, response);
             
        }
 }

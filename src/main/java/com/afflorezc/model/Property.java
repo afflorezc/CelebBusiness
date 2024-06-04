@@ -13,7 +13,7 @@ public class Property {
 
     public Property() { // valores por defecto de inicializacion
         this.propertyID = -1;
-        this.countryLocation = "";
+        this.countryLocation = ""; 
         this.stateLocation = "";
         this.cityLocation = "";
         this.address = "";
