@@ -1,85 +1,113 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
-
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
 
-        <title>Celeb Business</title>
-        <meta content="" name="descriptison">
-        <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="assets/img/logo2.jpg" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-        <!-- Favicons -->
-        <link href="assets/img/logo2.jpg" rel="icon">
-        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Lato:400,300,700,900" rel="stylesheet">
 
-        <!-- Vendor CSS Files -->
-        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-        <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
 
-        <!-- Template Main CSS File -->
-        <link href="assets/css/style.css" rel="stylesheet">
+    <title>Search Propieties</title>
+</head>
+<body>
+    <%@ page import="com.afflorezc.utils.Images" %>
+    <%@ page import="com.afflorezc.model.Property" %>
+    <%@ page import="java.util.List" %>
+    <%@ page import="java.util.ArrayList" %>
 
-    </head>
+    <%  
+        List<Property> properties = (List<Property>) request.getAttribute("properties");;
+        boolean propertiesExist;
+        if(request.getAttribute("properties") != null){
+            propertiesExist = true;
+        }else{
+            propertiesExist = false;
+        }
+    %>
 
-    <body>
-        <%@ include file="header_user.jsp" %>
-        <!-- ======= Hero Section ======= -->
-        <section id="hero">
-            <div class="hero-container">
-                <a href="#main" class="btn-get-started scrollto">Get Started</a>
+    <%@ include file="header_user.jsp" %>
+
+    <%@ include file="./assets/css/style.jsp" %>
+
+    <div class="my-5"></div>
+
+    <section id="properties" class="portfolio">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Properties</h2>
             </div>
-        </section><!-- #hero -->
-
-        <main id="main">
-
-            <!-- ======= Properties Section ======= -->
-            <section id="properties" class="portfolio">
-                <%@ include file="properties.jsp" %>
-            </section><!-- End Our Portfolio Section -->
-
-            <!-- ======= Map Section ======= -->
-            <section class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s150%20Park%20Row%2C%20New%20York%2C%20NY%2010007%2C%20USA!5e0!3m2!1sen!2sbg!4v1579767901424!5m2!1sen!2sbg" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-            </section><!-- End Map Section -->
-
-        </main><!-- End #main -->
-
-        <!-- ======= Footer ======= -->
-        <footer id="footer">
-            <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Celeb Business</span></strong>. All Rights Reserved
+    
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".filter-house">Houses</li>
+                    <li data-filter=".filter-aptment">Apartments</li>
+                    <li data-filter=".filter-smallapt">Small apartments</li>
+                    <li data-filter=".filter-art">Fine Art</li>
+                    <li data-filter=".filter-collectible">Collectibles</li>
+                    </ul>
+                </div>
             </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-one-page-bootstrap-template-amoeba/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    
+            <div class="row portfolio-container">
+
+                <%  
+                    if(propertiesExist == true){
+                        for (int i=0; i < properties.size(); i++) {
+                            Property property = properties.get(i);
+                            String image = Images.randomImage();
+                %>
+                <!--Houses-->
+                <div class="col-lg-4 col-md-6 filter-house">
+                    <div class="card-property">
+                        <div class="portfolio-item">
+                            <img src="assets/img/portfolio/<%= image %>" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h3><a href="assets/img/portfolio/<%= image %>" data-gall="portfolioGallery" class="venobox" title="House 1">View property</a></h3>
+                                <a href="assets/img/portfolio/<%= image %>" data-gall="portfolioGallery" class="venobox" title="House 1"><i class="icofont-plus"></i></a>
+                            </div>
+                        </div>
+                        <div class="mb-4 description-properties-div">
+                            <p class="description-properties"><span>Country: </span><%= property.getCountryLocation() %></p>
+                            <p class="description-properties"><span>State: </span><%= property.getStateLocation() %></p>
+                            <p class="description-properties"><span>City: </span><%= property.getCityLocation() %></p>
+                            <p class="description-properties"><span>Value: </span><%= property.getValuation() %></p>
+                        </div>
+                    </div>
+
+                </div>
+                <% 
+                        } // cerrando el for
+                    }  //cerrando el if
+                %>
+
+    
             </div>
-            </div>
-        </footer><!-- End #footer -->
+    
+        </div>
+    </section>
 
-        <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    <%@ include file="footer.jsp" %>
 
-        <!-- Vendor JS Files -->
-        <script src="assets/vendor/jquery/jquery.min.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-        <script src="assets/vendor/php-email-form/validate.js"></script>
-        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="assets/vendor/venobox/venobox.min.js"></script>
-
-        <!-- Template Main JS File -->
-        <script src="assets/js/main.js"></script>
-
-    </body>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/venobox/venobox.min.js"></script>
+</body>
 </html>
