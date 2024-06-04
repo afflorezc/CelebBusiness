@@ -34,6 +34,7 @@ public class RegisterUser extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+
         if(username !=null && !username.equals("") && password != null && !password.equals("")){
 
             if(userDAO.userNameInUse(username)){
@@ -43,7 +44,7 @@ public class RegisterUser extends HttpServlet {
                 // Se crea la persona con nombres y documento base "No document"
                 LocalDate today = LocalDate.now();
                 Date registrationDate = Date.valueOf(today);
-                Person newPerson = new Person(registrationDate);
+                Person newPerson = new Person(registrationDate); 
                 
                 personDAO.insertPerson(newPerson);
                 int personID = -1;
@@ -60,7 +61,7 @@ public class RegisterUser extends HttpServlet {
                 newUser.setHasBankAccount(false);
                 newUser.setPersonID(personID);
 
-                if(isCelebrity.equals("1")){
+                if(isCelebrity != null){
                     newUser.setUserType("celebrity");
                     newUser.setCelebrity(true);
                 } else {

@@ -23,7 +23,7 @@ CREATE TABLE `person` (
 CREATE TABLE `user` (
   `clientID` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `isCelebrity` tinyint(1) NOT NULL,
   `hasBankAccount` tinyint(1) NOT NULL,
   `personID` int(11) NOT NULL,
@@ -49,13 +49,13 @@ CREATE TABLE `auction` (
 -- celebbussiness.property definition
 
 CREATE TABLE `property` (
-  `propertyID` int(11) NOT NULL,
+  `propertyID` int(11) NOT NULL AUTO_INCREMENT,
   `countryLocation` varchar(50) NOT NULL,
   `stateLocation` varchar(50) NOT NULL,
   `cityLocation` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
   `owner` int(11) NOT NULL,
-  `onSale` tinyint(1) NOT NULL,
+  `propertyStatus` char(30) NOT NULL,
   `valuation` double NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`propertyID`),

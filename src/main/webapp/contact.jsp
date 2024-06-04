@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <textarea class="form-control" name="message" id="message" rows="5" data-rule="required" data-msg="Please write something for us", placeholder="Message">
 
-                        </textarea>
+                        </textarea> 
                         <div class="validate"></div>
                     </div>
 

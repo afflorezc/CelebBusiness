@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import com.afflorezc.model.Person;
+import com.afflorezc.utils.ValidateInputs;
 import com.afflorezc.dao.PersonDAO;
 
 @WebServlet("/register_person")

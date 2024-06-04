@@ -70,8 +70,8 @@
               </div>
 
               <div class="form-group">
-                <div>Are you a celebrity?</div>
-                <input type="checkbox" name="celebrity" class="form-control" id="celebrity" value="1"/>
+                <div>Are you a celebrity?</div> 
+                <input type="checkbox" name="celebrity" class="form-control" id="celebrity"/>
               </div>
 
               <div class="mb-3">

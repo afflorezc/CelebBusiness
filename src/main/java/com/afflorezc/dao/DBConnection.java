@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private static final String URL_DB = "jdbc:mariadb://localhost:3306/celebbussiness";
+    private static final String URL_DB = "jdbc:mariadb://localhost:3307/celebbussiness";
     private static final String USER_DB = "root";
-    private static final String PASSWORD_DB = "6789";
+    private static final String PASSWORD_DB = "root";
 
     static Connection getConnection(){
         Connection connection = null;

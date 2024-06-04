@@ -1,7 +1,7 @@
 package com.afflorezc.utils;
 
 public class Country {
-    public static String[] Countries ={ "Afghanistan" , "Albania" , "Algeria" , "Andorra" , "Angola" , "Antigua and Barbuda" , "Argentina",
+    public static String[] countries ={ "Afghanistan" , "Albania" , "Algeria" , "Andorra" , "Angola" , "Antigua and Barbuda" , "Argentina",
                                         "Armenia" , "Australia" , "Austria" , "Azerbaijan" , "Bahamas" , "Bahrain" , "Bangladesh" , "Barbados",
                                         "Belarus" , "Belgium" , "Belize" , "Benin" , "Bhutan" , "Bolivia (Plurinational State of)" ,
                                         "Bosnia and Herzegovina" , "Botswana" , "Brazil" , "Brunei Darussalam" , "Bulgaria" , "Burkina Faso" ,

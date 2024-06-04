@@ -7,7 +7,7 @@ public class Property {
     private String cityLocation;
     private String address;
     private int owner;
-    private boolean onSale;
+    private String propertyStatus;
     private double valuation;
     private String description;
 
@@ -18,20 +18,32 @@ public class Property {
         this.cityLocation = "";
         this.address = "";
         this.owner = -1;
-        this.onSale = false;
+        this.propertyStatus = "";
         this.valuation = -1;
         this.description = "";
     }
 
+    public Property(String countryLocation, String stateLocation, String cityLocation, String address, int owner,
+            String propertyStatus, double valuation, String description) {
+        this.countryLocation = countryLocation;
+        this.stateLocation = stateLocation;
+        this.cityLocation = cityLocation;
+        this.address = address;
+        this.owner = owner;
+        this.propertyStatus = propertyStatus;
+        this.valuation = valuation;
+        this.description = description;
+    }
+
     public Property(int propertyID, String countryLocation, String stateLocation, String cityLocation, String address,
-            int owner, boolean onSale, double valuation, String description) {
+            int owner, String propertyStatus, double valuation, String description) {
         this.propertyID = propertyID;
         this.countryLocation = countryLocation;
         this.stateLocation = stateLocation;
         this.cityLocation = cityLocation;
         this.address = address;
         this.owner = owner;
-        this.onSale = onSale;
+        this.propertyStatus = propertyStatus;
         this.valuation = valuation;
         this.description = description;
     }
@@ -72,11 +84,11 @@ public class Property {
     public void setOwner(int owner) {
         this.owner = owner;
     }
-    public boolean isOnSale() {
-        return onSale;
+    public String getPropertyStatus() {
+        return propertyStatus;
     }
-    public void setOnSale(boolean onSale) {
-        this.onSale = onSale;
+    public void setPropertyStatus(String propertyStatus) {
+        this.propertyStatus = propertyStatus;
     }
     public double getValuation() {
         return valuation;

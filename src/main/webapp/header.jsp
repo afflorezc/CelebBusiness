@@ -20,7 +20,7 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#properties">Properties</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="create_acount.jsp">Sign up</a></li>
+          <li><a href="create_account.jsp">Sign up</a></li>
           <li><a href="user_login.jsp">Sign in</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
