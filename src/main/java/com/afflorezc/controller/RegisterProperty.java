@@ -2,14 +2,11 @@ package com.afflorezc.controller;
 
 import java.io.IOException;
 
-import org.eclipse.tags.shaded.org.apache.xpath.functions.FuncFalse;
-
 import com.afflorezc.dao.PersonDAO;
 import com.afflorezc.dao.PropertyDAO;
 import com.afflorezc.dao.UserDAO;
 import com.afflorezc.model.Property;
 import com.afflorezc.model.User;
-import com.afflorezc.model.Person;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

@@ -9,7 +9,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import com.afflorezc.dao.PropertyDAO;
 import com.afflorezc.model.Property;
@@ -24,12 +23,11 @@ public class SearchProperties extends HttpServlet{
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException {
+
             List<Property> properties = new ArrayList<Property>();
 
             properties = propertyDAO.selectAllProperties();
-
             request.setAttribute("properties", properties);
-
             request.getRequestDispatcher("search_properties.jsp").forward(request, response);
             
        }
