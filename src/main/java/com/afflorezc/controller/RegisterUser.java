@@ -74,7 +74,7 @@ public class RegisterUser extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("registering", newPerson);
                 
-                response.sendRedirect("register.jsp");
+                response.sendRedirect("register.jsp"); 
             }
         } else {
             // No se completaron los campos
