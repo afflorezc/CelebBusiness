@@ -19,6 +19,7 @@
           <li><a href="search_properties">Properties</a></li>
           <li><a href="#main">Auctions</a></li>
           <li><a href="#main">Submit property</a></li>
+          <li><a href="user_properties">Your properties</a></li>
           <li><a href="bank.jsp">Bank</a></li>
           <li><a href="#main">Settings</a></li>
           <li><a href="logout">Log Out</a></li>
