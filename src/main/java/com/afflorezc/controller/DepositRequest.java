@@ -12,22 +12,18 @@ import java.util.List;
 
 import com.afflorezc.model.BankAccount;
 import com.afflorezc.model.User;
-import com.afflorezc.model.Portfolio;
 import com.afflorezc.dao.PersonDAO;
 import com.afflorezc.dao.BankAccountDAO;
-import com.afflorezc.dao.PortfolioDAO;
 
-@WebServlet("/open_investment_request")
-public class OpenInvestmentRequest extends HttpServlet {
+@WebServlet("/deposit-request")
+public class DepositRequest extends HttpServlet {
 
     private PersonDAO personDAO;
     private BankAccountDAO bankAccountDAO;
-    private PortfolioDAO portfolioDAO;
 
-    public OpenInvestmentRequest(){
+    public DepositRequest(){
         this.personDAO = new PersonDAO();
         this.bankAccountDAO = new BankAccountDAO();
-        this.portfolioDAO = new PortfolioDAO();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -50,35 +46,8 @@ public class OpenInvestmentRequest extends HttpServlet {
             }
 
             List<BankAccount> accounts = bankAccountDAO.selectAccountByPersonID(personID);
-            if(accounts.size()==0){
-                request.setAttribute("message", "You don't have enough money for openning an inversion: Fund your accounts first");
-                request.setAttribute("deposit", "Deposit");
-                request.getRequestDispatcher("bank-accounts.jsp").forward(request, response);
-            }
-
-            List<Portfolio> portfolios = portfolioDAO.selectAllPortfolios();
-           
-            List<Double> minInversion = portfolioDAO.minRequiredInvestment(portfolios);
-            double requiredInvestment = portfolioDAO.maxRequiredInvestment(portfolios);
-
-            boolean availableBalance = true;
-            for(BankAccount account:accounts){
-                
-                if(account.getBalance() < requiredInvestment){
-                    availableBalance = false;
-                    break;
-                }
-            }
-
-            if(!availableBalance){
-                response.sendRedirect("bank-accounts.jsp");
-            } else{
-                request.setAttribute("accounts", accounts);
-                request.setAttribute("portfolios-min-inversion", minInversion);
-                request.setAttribute("portfolios",portfolios);
-                request.getRequestDispatcher("open-investment.jsp").forward(request, response);
-            }
-            
+            request.setAttribute("bank-accounts", accounts);
+            request.getRequestDispatcher("deposit.jsp").forward(request, response);
         }
 
     }

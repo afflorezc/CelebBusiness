@@ -45,14 +45,14 @@
            
                         <div class="col-lg-4 col-md-6 icon-box">
                             <div class="icon"><i class="icofont-bank"></i></div>
-                            <h4 class="title"><a href="deposit.jsp">Deposit</a></h4>
+                            <h4 class="title"><a href="deposit-request">Deposit</a></h4>
                             <p class="description">Make a deposit to can start your business
                             </p>
                         </div>
     
                         <div class="col-lg-4 col-md-6 icon-box">
                             <div class="icon"><i class="icofont-coins"></i></div>
-                            <h4 class="title"><a href="withdraw.jsp">Withdraw</a></h4>
+                            <h4 class="title"><a href="withdrawal-request">Withdraw</a></h4>
                             <p class="description"> Do you need some cash? you can withdraw 24-7!
                             </p>
                         </div>

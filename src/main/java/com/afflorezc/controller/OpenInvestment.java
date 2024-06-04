@@ -17,6 +17,7 @@ import com.afflorezc.model.BankTransfer;
 import com.afflorezc.model.User;
 import com.afflorezc.dao.BankAccountDAO;
 import com.afflorezc.dao.InversionAccountDAO;
+import com.afflorezc.dao.BankTransferDAO;
 import com.afflorezc.dao.PortfolioDAO;
 import com.afflorezc.dao.PersonDAO;
 
@@ -28,6 +29,7 @@ public class OpenInvestment extends HttpServlet {
     private BankOperations bankOperations;
     private PortfolioDAO portfolioDAO;
     private BankAccountDAO bankAccountDAO;
+    private BankTransferDAO bankTransferDAO;
 
     public OpenInvestment(){
         this.inversionAccountDAO = new InversionAccountDAO();
@@ -35,6 +37,7 @@ public class OpenInvestment extends HttpServlet {
         this.bankOperations = new BankOperations();
         this.portfolioDAO = new PortfolioDAO();
         this.bankAccountDAO = new BankAccountDAO();
+        this.bankTransferDAO = new BankTransferDAO();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -63,7 +66,7 @@ public class OpenInvestment extends HttpServlet {
                 request.getRequestDispatcher("open-investment.jsp").forward(request, response);
             }
 
-            String investmentType = request.getParameter("inversion_type");
+            String investmentType = request.getParameter("investment-type");
             int portfolioID = 0;
 
             if(investmentType.equals("Investment Fund")){
@@ -101,6 +104,7 @@ public class OpenInvestment extends HttpServlet {
             // Actualizacion de los datos de las cuentas
             bankAccountDAO.updateBalance(bankAccountNumber, bankAccount.getBalance());
             inversionAccountDAO.updateBalance(inversionAccount.getInversionNumber(), inversionAccount);
+            bankTransferDAO.insertBankTransfer(bankTransfer);
             // Redireccionamiento y respuesta del resultado
             request.setAttribute("message", "Investment opened sucessfully");
             request.getRequestDispatcher("open-investment.jsp").forward(request, response);

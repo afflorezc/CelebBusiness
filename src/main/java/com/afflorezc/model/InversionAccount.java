@@ -21,6 +21,7 @@ public class InversionAccount {
         this.chargedProfitOnTaxes = 0;
         this.isEmbargoed = false;
         this.embargoedValue = 0;
+        this.balance = 0;
     }
 
     public InversionAccount(int personID, String inversionType, double balance, Date openDate, double accumulatedProfit,

@@ -28,7 +28,7 @@ public class BankAccountDAO {
     private static final String SELECT_ACCOUNT_USER_ID = "SELECT * FROM bank_account WHERE personID = ?";
     private static final String SELECT_ALL = "SELECT * FROM bank_account";
     private static final String DELETE_ACCOUNT = "DELETE FROM bank_account WHERE accountNumber = ?";
-    private static final String UPDATE_BALANCE = "UPDATE bank_account SET balance = ? WHERE" +
+    private static final String UPDATE_BALANCE = "UPDATE bank_account SET balance = ? WHERE " +
                                                                    "accountNumber = ?)";
 
     public void insertAccount(BankAccount account){
@@ -112,7 +112,7 @@ public class BankAccountDAO {
                     account.setAnnualInterest(resultSet.getDouble("annualInterest"));
                     account.setOpenDate(resultSet.getDate("openDate"));
                     account.setCancelationDate(resultSet.getDate("cancelationDate"));
-                    account.setAccountType(resultSet.getString("accounType"));
+                    account.setAccountType(resultSet.getString("accountType"));
                 }
             } catch (SQLException e){
                 System.out.println("Cuenta no encontrada: " + e.getMessage());
@@ -142,7 +142,7 @@ public class BankAccountDAO {
                     account.setAnnualInterest(resultSet.getDouble("annualInterest"));
                     account.setOpenDate(resultSet.getDate("openDate"));
                     account.setCancelationDate(resultSet.getDate("cancelationDate"));
-                    account.setAccountType(resultSet.getString("accounType"));
+                    account.setAccountType(resultSet.getString("accountType"));
 
                     accounts.add(account);
                 }

@@ -1,9 +1,9 @@
 jQuery(document).ready(function($) {
     "use strict";
 
-    $('#investment').change(function() {
+    $('#investment-type').change(function() {
         
-      let this_select = $('#investment');
+      let this_select = $('#investment-type');
       let value = this_select.val();
       switch(value){
         case "CDT":

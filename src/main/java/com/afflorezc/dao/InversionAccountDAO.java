@@ -11,7 +11,8 @@ import com.afflorezc.model.InversionAccount;
 public class InversionAccountDAO {
 
     // SQL Queries para hacer el CRUD (Create, Read, Update, Delete)
-    private static final String INSERT_INVERSION = "INSERT INTO inversion_account (inversionType," +
+    private static final String INSERT_INVERSION = "INSERT INTO inversion_account (inversionNumber," +
+                                                                        "inversionType," +
                                                                         "balance," +
                                                                         "openDate," +
                                                                         "dueDate," +
@@ -22,7 +23,7 @@ public class InversionAccountDAO {
                                                                         "portfolioID, " +
                                                                         "personID) " +
                                                                         "VALUES" + 
-                                                                        "(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                                                        "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_INVERSION_NUMBER = "SELECT * FROM inversion_account WHERE inversionNumber = ?";
     private static final String SELECT_INVERSION_USER_ID = "SELECT * FROM inversion_account WHERE personID = ?";
     private static final String SELECT_ALL = "SELECT * FROM inversion_account";
@@ -49,16 +50,17 @@ public class InversionAccountDAO {
         
         try (
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INVERSION)) {
-            preparedStatement.setString(1, account.getInversionType());
-            preparedStatement.setDouble(2, account.getBalance());
-            preparedStatement.setDate(3, account.getOpenDate());
-            preparedStatement.setDate(4, account.getDueDate());
-            preparedStatement.setDouble(5, account.getAccumulatedProfit());
-            preparedStatement.setDouble(6, account.getChargedProfitOnTaxes());
-            preparedStatement.setBoolean(7, account.isEmbargoed());
-            preparedStatement.setDouble(8, account.getEmbargoedValue());
-            preparedStatement.setInt(9, account.getPortfolioID());
-            preparedStatement.setInt(10, account.getPersonID());
+            preparedStatement.setInt(1,account.getInversionNumber());
+            preparedStatement.setString(2, account.getInversionType());
+            preparedStatement.setDouble(3, account.getBalance());
+            preparedStatement.setDate(4, account.getOpenDate());
+            preparedStatement.setDate(5, account.getDueDate());
+            preparedStatement.setDouble(6, account.getAccumulatedProfit());
+            preparedStatement.setDouble(7, account.getChargedProfitOnTaxes());
+            preparedStatement.setBoolean(8, account.isEmbargoed());
+            preparedStatement.setDouble(9, account.getEmbargoedValue());
+            preparedStatement.setInt(10, account.getPortfolioID());
+            preparedStatement.setInt(11, account.getPersonID());
             preparedStatement.executeUpdate();
             System.out.println("Cuenta de inversion creada exitosamente en la base de datos");
         } catch (SQLException e) {

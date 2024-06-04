@@ -2,7 +2,6 @@
 
 <%@page import="java.util.List"%>
 <%@page import="com.afflorezc.model.BankAccount"%>
-<%@page import="com.afflorezc.model.Portfolio" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +43,7 @@
                   <div class="section-title">
                     <h2>Account selection</h2>
                     <p>
-                        Please select the account of interest and start your business.
+                        Please select the account do you want to fund!
                     </p>
                   </div>
       
@@ -66,37 +65,29 @@
                       </div>
       
                     <div class="col-lg-5 col-md-12">
-                      <form action="open_investment" method="post" role="form" class="php-email-form"> 
-
-                        <select class="form-group form-control investment" name="investment-type" id="investment-type" >
-                            <option value="">Select the type of inversion</option>
-                            <option value="CDT">CDT</option>
-                            <option value="Investment Fund">Investment Fund</option>
-                            
-                        </select>
+                      <form action="deposit" method="post" role="form" class="php-email-form"> 
 
                         <select class="form-group form-control user-accounts" name="user-accounts" id="user-accounts" >
-                            <option value="">Select your Bank account for funding the inversion</option>
-                            <% if(request.getAttribute("accounts")!= null){
-                                  List<BankAccount> accounts = (List<BankAccount>) request.getAttribute("accounts");
-                                  for(BankAccount account:accounts){ %>
+                            <option value="">Select your Bank account of your interest</option>
+                            <% if(request.getAttribute("bank-accounts")!= null){
+                                    List<BankAccount> accounts = (List<BankAccount>) request.getAttribute("bank-accounts");
+                                    for(BankAccount account:accounts){ %>
+
                             <option value= "<%= account.getAccountNumber() %>"> <%= account.getAccountNumber() %></option>
-                                <%} 
-                              } %>
+                            <%    } 
+                               } %>
                         </select>
 
-                        <select class="form-group form-control portfolios" name="portfolios" id="portfolios" >
-                            <option value=""> Select the fund of your interest</option>
-                            <% if(request.getAttribute("portfolios")!= null){
-                                List<Portfolio> portfolios = (List<Portfolio>) request.getAttribute("portfolios");
-                                for(Portfolio portfolio:portfolios){ %>
-                            <option value= "<%= portfolio.getPortfolioName() %>"><%= portfolio.getPortfolioName() %></option>
-                                <% } 
-                              }%>
-                        </select>
-                        <input type="number" class="form-group form-control investment-value" name="investment" id="investment" placeholder="Investment amount" required/>
+                        <input type="number" class="form-group form-control user-accounts" name="deposit-value" id="deposit-value" placeholder="Deposit amount" required/>
 
-                        <input type="date" class="form-group form-control cdt-parameters" name="due-date" id="due-date">
+                        <label class="description form-group">Select the currency of your assets for the deposit</label><br>
+
+                        <input type="radio" class="description form-group" id="eur" name="currency" value="EUR">
+                        <label for="eur" class="description form-group">Euros</label><br>
+                        <input type="radio" class="description form-group" id="usd" name="currency" value="USD">
+                        <label for="usd" class="description form-group">Dollars</label><br>
+                        <input type="radio" class="description form-group" id="cop" name="currency" value="COP">
+                        <label for="cop" class="description form-group">Pesos</label><br>
 
                         <div class="mb-3">
                           <!--<div class="loading">Loading</div>
@@ -107,7 +98,7 @@
                               <% } %>
                             </div>
                         </div>
-                        <div class="text-center"><button type="submit">Open Investment</button></div>
+                        <div class="text-center"><button type="submit">Deposit</button></div>
                       </form>
                     </div>
       
@@ -145,7 +136,7 @@
 
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
-        <script src="assets/js/investment_2.js"></script>
+        <script src="assets/js/investments.js"></script>
 
     </body>
 </html>

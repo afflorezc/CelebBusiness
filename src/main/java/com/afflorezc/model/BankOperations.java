@@ -72,9 +72,10 @@ public class BankOperations {
     public InversionAccount createNewInvestment(String investmentType, int personID, int portfolioID,
                                                     double initialAmount){
 
-        if(initialAmount <=0){
+        if(initialAmount <0){
             return null;
         }
+
         int clientNumber;
         String accountNumber = BANK_CODE;
         if(investmentType.equals("CDT")){
@@ -212,6 +213,25 @@ public class BankOperations {
         bankTransfer.setTransferDate(transferDate);
         
         return bankTransfer;
+    }
+
+    public Transaction createBankTransaction(BankAccount bankAccount, String transactionType, double value){
+
+        Transaction transaction = new Transaction();
+
+        transaction.setBankAccount(bankAccount.getAccountNumber());
+    
+        LocalDateTime today = LocalDateTime.now();
+        Timestamp transferDate = Timestamp.valueOf(today);
+        transaction.setTransactionDate(transferDate);
+
+        transaction.setTransactionAmount(value);
+        transaction.setInitialBalance(bankAccount.getBalance());
+        depositToBankAccount(bankAccount, value);
+        transaction.setFinalBalance(bankAccount.getBalance());
+        transaction.setTransactionType(transactionType);
+
+        return transaction;
     }
 
     public void transferToBankAccount(BankAccount emiterAccount, BankAccount receptorAccount){

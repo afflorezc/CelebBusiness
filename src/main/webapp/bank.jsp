@@ -34,11 +34,39 @@
 
         <main id="main">
 
-            <!-- ======= Properties Section ======= -->
-            <section id="properties" class="portfolio">
-                <%@ include file="properties.jsp" %>
-            </section><!-- End Our Portfolio Section -->
+            <section id="about" class="about">
+                <div class="container">
 
+                    <div class="section-title">
+                    <h2>Celeb Business Bank</h2>
+                    </div>
+            
+                    <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2">
+                        <img src="assets/img/bank-background.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1">
+                        <h3>The best opportunity to growth wealth</h3>
+                        <p class="font-italic">
+                        Explore the different products we offer to you
+                        </p>
+                        <ul>
+                        <li><i class="icofont-check-circled"></i> Saving accounts with competitive interest rate</li>
+                        <li><i class="icofont-check-circled"></i> Checking accounts without the boring paperwork</li>
+                        <li><i class="icofont-check-circled"></i> Deposits and withdrwals in three main currencies at the best rates</li>
+                        <li><i class="icofont-check-circled"></i> Inversions in different financial instruments with the guide of experts</li>
+                        </ul>
+                        <p>
+                        It had never been easier and safe to manage your different assets, in 
+                        Celeb Business Bank you get instant information about all of your saving, checking and investment
+                        accounts in a 24-7 access. We also offer the opportunity to buy and sell very precious properties and
+                        objects of interest that many celebrities have owned over years! 
+                        </p>
+                    </div>
+                    </div>
+            
+                </div>
+            </section>
 
         </main><!-- End #main -->
 
