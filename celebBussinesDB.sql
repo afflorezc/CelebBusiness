@@ -200,7 +200,7 @@ VALUES (1000, 0.02, 'Balanced Risk', 2, 150000);
 -- celebbussiness.inversion_account definition
 
 CREATE TABLE `inversion_account` (
-  `inversionNumber` int(11) NOT NULL AUTO_INCREMENT,
+  `inversionNumber` int(11) NOT NULL,
   `inversionType` varchar(30) NOT NULL,
   `balance` double NOT NULL,
   `openDate` date NOT NULL,
