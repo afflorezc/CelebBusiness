@@ -34,7 +34,7 @@ public class UserProperties extends HttpServlet{
         User user = (User) session.getAttribute("user_session");
 
         if (user == null) {
-            response.sendRedirect("user_session.jsp");
+            response.sendRedirect("user_login.jsp");
         }else{
             int id = user.getPersonID();
 
