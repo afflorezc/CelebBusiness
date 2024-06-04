@@ -1,16 +1,18 @@
 package com.afflorezc.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class BankOperations {
 
-    private static final String BANK_CODE = "42";
-    private static final String SAVINGS_ACCOUNT_CODE = "01";
-    private static final String CHECKING_ACCOUNT_COD = "02";
-    private static final String CDT_INVESTMENT_COD = "03";
-    private static final String INVESTMENT_FUND_COD = "04";
-    private static int clientsCapacity = 8;
+    private static final String BANK_CODE = "19";
+    private static final String SAVINGS_ACCOUNT_CODE = "1";
+    private static final String CHECKING_ACCOUNT_COD = "2";
+    private static final String CDT_INVESTMENT_COD = "3";
+    private static final String INVESTMENT_FUND_COD = "4";
+    private static int clientsCapacity = 7;
     private static int savingClientNumber = 0;
     private static int checkingClientNumber = 0;
     private static int cdtClientNumber = 0;
@@ -104,7 +106,9 @@ public class BankOperations {
         investment.setInversionType(investmentType);
         investment.setBalance(initialAmount);
         investment.setOpenDate(openDate);
-        investment.setPortfolioID(portfolioID);
+        if(portfolioID > 0){
+            investment.setPortfolioID(portfolioID);
+        }
         investment.setPersonID(personID);
 
         return investment;
@@ -139,6 +143,36 @@ public class BankOperations {
         return interest;
     }
 
+    public void depositToBankAccount(BankAccount bankAccount, double deposit){
+        double balance = bankAccount.getBalance() + deposit;
+        bankAccount.setBalance(balance);
+    }
+
+    public void depositToInversionAccount(InversionAccount inversionAccount, double deposit){
+        double balance = inversionAccount.getBalance() + deposit;
+        inversionAccount.setBalance(balance);
+    }
+
+    public boolean withDrawalFromBankAccount(BankAccount bankAccount, double amount){
+        
+        if(bankAccount.getBalance() < amount){
+            return false;
+        }
+        double balance = bankAccount.getBalance() - amount;
+        bankAccount.setBalance(balance);
+        return true;
+    }
+
+    public boolean withDrawalFromInversion(InversionAccount inversionAccount, double amount){
+        
+        if(inversionAccount.getBalance() < amount){
+            return false;
+        }
+        double balance = inversionAccount.getBalance() - amount;
+        inversionAccount.setBalance(balance);
+        return true;
+    }
+
     public void updateBalanceByInterest(BankAccount bankAccount){
 
         if(!bankAccount.isActive()){
@@ -153,6 +187,39 @@ public class BankOperations {
 
         double interestValue = calculateInterest(elapsedDays, interestRate, balance);
         bankAccount.setBalance(balance+interestValue);
+    }
+
+    public BankTransfer createBankTransfer(BankAccount bankAccount, InversionAccount inversionAccount,
+                                                double transferValue){
+        
+        BankTransfer bankTransfer = new BankTransfer();
+        bankTransfer.setEmiterInitialBalance(bankAccount.getBalance());
+        if(!withDrawalFromBankAccount(bankAccount, transferValue)){
+            return null;
+        }
+
+        bankTransfer.setEmiterAccount(bankAccount.getAccountNumber());
+        bankTransfer.setReceptorAccount(inversionAccount.getInversionNumber());
+        bankTransfer.setTransferAmount(transferValue);
+        bankTransfer.setReceptorInitialBalance(inversionAccount.getBalance());
+        bankTransfer.setEmiterFinalBalance(bankAccount.getBalance());
+
+        depositToInversionAccount(inversionAccount, transferValue);
+        bankTransfer.setReceptorFinalBalance(inversionAccount.getBalance());
+
+        LocalDateTime today = LocalDateTime.now();
+        Timestamp transferDate = Timestamp.valueOf(today);
+        bankTransfer.setTransferDate(transferDate);
+        
+        return bankTransfer;
+    }
+
+    public void transferToBankAccount(BankAccount emiterAccount, BankAccount receptorAccount){
+
+    }
+
+    public void transferToInvestment(BankAccount emiterAccount, InversionAccount inversionAccount){
+
     }
 
 }

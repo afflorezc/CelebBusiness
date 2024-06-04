@@ -26,6 +26,11 @@ public class InversionAccountDAO {
     private static final String SELECT_INVERSION_NUMBER = "SELECT * FROM inversion_account WHERE inversionNumber = ?";
     private static final String SELECT_INVERSION_USER_ID = "SELECT * FROM inversion_account WHERE personID = ?";
     private static final String SELECT_ALL = "SELECT * FROM inversion_account";
+    private static final String SELECT_USER_PORTFOLIOS = "SELECT portfolio.portfolioName FROM"+
+                                            "(inversion_account INNER JOIN portfolio"+
+                                            " on inversion_account.portfolioID = portfolio.portfolioID)" +
+                                            "WHERE inversion_account.portfolioID IS NOT NULL AND "+
+                                            "inversion_account.personID =?";
     private static final String DELETE_INVERSION = "DELETE FROM inversion_account WHERE inversionNumber = ?";
     private static final String UPDATE_INVERSION = "UPDATE inversion_account SET inversionType =?," +
                                                                                 "balance =?," +
@@ -163,6 +168,26 @@ public class InversionAccountDAO {
                 System.out.println("Ha habido un error o no existen cuentas de inversion para el usuario: " + e.getMessage());
             }
             return inversions;
+    }
+
+    public List<String> selectPortfoliosForUser(int personID){
+
+        List<String> portfolios = new ArrayList<String>();
+        Connection connection = DBConnection.getConnection();
+        
+        try(
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_PORTFOLIOS)){
+                preparedStatement.setInt(1, personID);
+                ResultSet resultSet = preparedStatement.executeQuery();
+                while(resultSet.next()){
+                    portfolios.add(resultSet.getString("portfolioName"));
+                }
+            } catch (SQLException e){
+                System.out.println("Ha habido un error en la consulta para el usuario: " + e.getMessage());
+            }
+
+        return portfolios;
+
     }
 
     public List<InversionAccount> selectAllAccounts(){

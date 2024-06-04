@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title>Celeb Business</title>
+        <title>Celeb Business Bank</title>
         <meta content="" name="descriptison">
         <meta content="" name="keywords">
 
@@ -30,64 +30,51 @@
     </head>
 
     <body>
-        <%@ include file="header.jsp" %>
-        <!-- ======= Hero Section ======= -->
-        <section id="hero">
-            <div class="hero-container">
-            <h1>Welcome to Celeb Business</h1>
-            <h2>The site where all celebrities can buy and sell their properties and more!</h2>
-            <a href="create_account.jsp" class="btn-get-started scrollto">Get Started</a>
-            </div>
-        </section><!-- #hero -->
+        <%@ include file="header_bank.jsp" %>
 
         <main id="main">
 
-            <!-- ======= About Us Section ======= -->
-            <section id="about" class="about">
-                <%@ include file="about.jsp" %>
-            </section><!-- End About Us Section -->
-
-            <!-- ======= Services Section ======= -->
-            <section id="services" class="services section-bg">
-                <%@ include file="services.jsp" %>
-            </section><!-- End Services Section -->
-
-            <!-- ======= Call To Action Section ======= -->
-            <section class="call-to-action">
+            <section id="accounts" class="services section-bg">
+                
                 <div class="container">
-                    <div class="text-center">
-                    <h3>Call Us for Action</h3>
-                    <p> Start the experience with us </p>
-                    <a class="cta-btn" href="#contact">Call us now!</a>
+                    <div class="section-title">
+                        <h4>Basic transactions</h4>
                     </div>
 
+                    <div class="row">
+           
+                        <div class="col-lg-4 col-md-6 icon-box">
+                            <div class="icon"><i class="icofont-bank"></i></div>
+                            <h4 class="title"><a href="deposit.jsp">Deposit</a></h4>
+                            <p class="description">Make a deposit to can start your business
+                            </p>
+                        </div>
+    
+                        <div class="col-lg-4 col-md-6 icon-box">
+                            <div class="icon"><i class="icofont-coins"></i></div>
+                            <h4 class="title"><a href="withdraw.jsp">Withdraw</a></h4>
+                            <p class="description"> Do you need some cash? you can withdraw 24-7!
+                            </p>
+                        </div>
+    
+                        <div class="col-lg-4 col-md-6 icon-box">
+                            <div class="icon"><i class="icofont-pay"></i></div>
+                            <h4 class="title"><a href="transfers.jsp">Transfer and Pay</a></h4>
+                            <p class="description">Transfer to your friends or just pay your liabilities
+                            </p>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 icon-box">
+                            <div class="icon"><i class="icofont-files-stack"></i></div>
+                            <h4 class="title"><a href="transfers.jsp">Documents</a></h4>
+                            <p class="description">Review in detail the transactions for your accounts
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
-            </section><!-- End Call To Action Section -->
-
-            <!-- ======= Properties Section ======= -->
-            <section id="properties" class="portfolio">
-                <%@ include file="properties.jsp" %>
-            </section><!-- End Our Portfolio Section -->
-
-            <!-- ======= Frequently Asked Questions Section ======= -->
-            <section id="faq" class="faq section-bg">
-                <%@ include file="faq.jsp" %>
-            </section><!-- End Frequently Asked Questions Section -->
-
-            <!-- ======= Our Team Section ======= -->
-            <section id="team" class="team">
-                <%@ include file="team.jsp" %>
-            </section><!-- End Our Team Section -->
-
-            <!-- ======= Contact Us Section ======= -->
-            <section id="contact" class="contact section-bg">
-                <%@ include file="contact.jsp" %>
-            </section><!-- End Contact Us Section -->
-
-            <!-- ======= Map Section ======= -->
-            <section class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s150%20Park%20Row%2C%20New%20York%2C%20NY%2010007%2C%20USA!5e0!3m2!1sen!2sbg!4v1579767901424!5m2!1sen!2sbg" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-            </section><!-- End Map Section -->
+            
+            </section>
 
         </main><!-- End #main -->
 

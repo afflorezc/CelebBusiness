@@ -22,7 +22,7 @@
         </div>
 
         <div class="row portfolio-container">
-            <!--Houses-->
+           
             <div class="col-lg-4 col-md-6 filter-house">
                 <div class="portfolio-item">
                 <img src="assets/img/portfolio/house-01.jpg" class="img-fluid" alt="">
@@ -355,10 +355,10 @@
 
             <div class="col-lg-4 col-md-6 filter-art">
                 <div class="portfolio-item">
-                <img src="assets/img/portfolio/art-07.jpg" class="img-fluid" alt="">
+                <img src="assets/img/portfolio/art-08.jpg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                    <h3><a href="assets/img/portfolio/art-07.jpg" data-gall="portfolioGallery" class="venobox" title="Art 7">Venus</a></h3>
-                    <a href="assets/img/portfolio/art-07.jpg" data-gall="portfolioGallery" class="venobox" title="Art 7"><i class="icofont-plus"></i></a>
+                    <h3><a href="assets/img/portfolio/art-08.jpg" data-gall="portfolioGallery" class="venobox" title="Art 8">Precolumbian</a></h3>
+                    <a href="assets/img/portfolio/art-08.jpg" data-gall="portfolioGallery" class="venobox" title="Art 8"><i class="icofont-plus"></i></a>
                 </div>
                 </div>
             </div>
@@ -379,16 +379,6 @@
                 <div class="portfolio-info">
                     <h3><a href="assets/img/portfolio/house-08.jpg" data-gall="portfolioGallery" class="venobox" title="House 8">Cinema for you</a></h3>
                     <a href="assets/img/portfolio/house-08.jpg" data-gall="portfolioGallery" class="venobox" title="House 8"><i class="icofont-plus"></i></a>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 filter-art">
-                <div class="portfolio-item">
-                <img src="assets/img/portfolio/art-08.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h3><a href="assets/img/portfolio/art-08.jpg" data-gall="portfolioGallery" class="venobox" title="Art 8">Precolumbian</a></h3>
-                    <a href="assets/img/portfolio/art-08.jpg" data-gall="portfolioGallery" class="venobox" title="Art 8"><i class="icofont-plus"></i></a>
                 </div>
                 </div>
             </div>

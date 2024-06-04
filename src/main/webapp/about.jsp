@@ -10,7 +10,7 @@
 
         <div class="row">
         <div class="col-lg-6 order-1 order-lg-2">
-            <img src="assets/img/about-img.jpg" class="img-fluid" alt="">
+            <img src="assets/img/hero-background-4.jpg" class="img-fluid" alt="">
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1">
             <h3>High quality in management of your legacy</h3>

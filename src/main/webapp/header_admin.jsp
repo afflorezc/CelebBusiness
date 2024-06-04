@@ -16,12 +16,12 @@
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
           <li class="active"><a href="#header">Home</a></li>
-          <li><a href="#about">Auctions</a></li>
-          <li><a href="#services">Clients</a></li>
-          <li><a href="#properties">Properties</a></li>
-          <li><a href="#team">Valuation Process</a></li>
-          <li><a href="index.jsp">Sign out</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#main">Auctions</a></li>
+          <li><a href="#main">Clients</a></li>
+          <li><a href="manage_properties.jsp">Properties</a></li>
+          <li><a href="#main">Valuations</a></li>
+          <li><a href="#main">Bank processes</a></li>
+          <li><a href="logout">Sign out</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
