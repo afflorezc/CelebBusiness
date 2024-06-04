@@ -6,14 +6,12 @@ import com.afflorezc.dao.PersonDAO;
 import com.afflorezc.dao.PropertyDAO;
 import com.afflorezc.model.Person;
 import com.afflorezc.model.Property;
-import com.afflorezc.model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/property")
 public class PropertyInfo extends HttpServlet {
